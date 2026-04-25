@@ -1,0 +1,2180 @@
+version: '3.8'
+services:
+  divine_intervention:
+    container_name: divine_intervention
+    category: White Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/white_tea:latest
+    notes: White tea base, Light, Sweet, eathy dried fig, honey-like
+    volumes:
+    - "additive:/Sweeteners: White rock sugar or light wildflower honey or Lavender\
+      \ Sumac syrup. You want a \"pure\" sweetness that doesn't cloud the brew. Rock\
+      \ sugar provides a clean lift, while wildflower honey echoes the floral high\
+      \ notes without adding a heavy \"earthy\" aftertaste.\r\n\r\nFruit & Herb Infusions:\
+      \ Dried elderberries or fresh lemon zest. Elderberries add a mystical, dark-fruit\
+      \ tartness, while lemon zest provides a \"halo\" of bright citrus aroma that\
+      \ cleanses the palate.\r\n\r\nMilk & Creams: A cloud of frothed almond milk.\
+      \ Almond milk is light enough to let the tea's complexity shine through while\
+      \ providing a silky, \"angelic\" texture to the cup."
+    - "snack:/Sweet: Angel food cake or lavender shortbread. The light-as-air texture\
+      \ of the cake is the thematic perfect match, and lavender shortbread reinforces\
+      \ the floral aromatics of the tea.\r\n\r\nSavory: Whipped feta with honey or\
+      \ lightly salted cashews. The creamy, salty tang of the feta provides a sophisticated\
+      \ contrast to the tea's sweetness, while cashews offer a buttery, neutral crunch."
+    restart: unless-stopped
+  holy_moly_hermes:
+    container_name: holy_moly_hermes
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=200°F
+    - TIME=240
+    - BREW_COUNT=1
+    image: tea_station/black_tea:latest
+    notes: A magical and "fabulous" tea blend that features a base of Huckleberry
+      Vanilla Earl Grey, brightened with spicy cardamom and zesty orange peel. It
+      even includes edible "luster dust" to give the brew a shimmering, celestial
+      glow.
+    volumes:
+    - "additive:/Sweeteners: Cajeta (Mexican caramel) or dark brown sugar. Cajeta's\
+      \ goat-milk base and deep caramelization match the \"Moly\" theme, while dark\
+      \ brown sugar mirrors the molasses notes of the tea's darker elements.\r\n\r\
+      \nFruit Infusions: Dried ancho chili slices or fresh orange peel. A tiny sliver\
+      \ of dried chili can enhance the \"Holy Moly\" kick, while orange zest adds\
+      \ a bright, citric contrast that cuts through the heavy cocoa and spice notes.\r\
+      \n\r\nMilk & Creams: Frothed chocolate soy milk or heavy cream. Chocolate soy\
+      \ milk doubles down on the \"cocoa\" profile, while heavy cream turns the brew\
+      \ into a decadent, liquid-dessert experience."
+    - "snack:/Sweet: Churros with cinnamon sugar or Mexican chocolate disks. The fried\
+      \ dough and cinnamon of the churros are a classic pairing for Mexican-inspired\
+      \ flavors, and the gritty texture of Mexican chocolate adds a rustic, sweet\
+      \ crunch.\r\n\r\nSavory: Plantain chips with a dash of cayenne or spiced pumpkin\
+      \ seeds (pepitas). The starchiness of the plantains and the earthy, roasted\
+      \ flavor of the pepitas balance the bold \"Moly\" spices.\r\n\r\nNotes: This\
+      \ is a robust, flavor-packed blend. If the spice becomes a bit too \"holy\"\
+      \ (intense), a pinch of sea salt in the cup can actually help suppress the bitterness\
+      \ of the cocoa and make the spice profile feel more rounded and sweet."
+    restart: unless-stopped
+  the_gilded_teafling:
+    container_name: the_gilded_teafling
+    category: Chai Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=200°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/chai_tea:latest
+    notes: A luxurious and flagship Caramel Chai that serves as the "heart" of the
+      brand’s collection. It is a warm, full-bodied blend featuring a rich black tea
+      base layered with creamy caramel and traditional aromatic spices.
+    volumes:
+    - "additive:/Sweeteners: Wildflower honey or amber rock sugar. Wildflower honey\
+      \ pulls out the hidden floral notes in the signature blend, while amber rock\
+      \ sugar adds a mellow, caramelized sweetness that doesn't mask the tea's complexity.\r\
+      \n\r\nFruit & Herb Infusions: Dried goldenberries or a sprig of fresh thyme.\
+      \ Goldenberries add a tart, \"jewel-like\" snap that matches the \"Gilded\"\
+      \ theme, while thyme adds a subtle, savory earthiness that grounds the more\
+      \ delicate aromatics.\r\n\r\nMilk & Creams: Splash of frothed cashew milk. Cashew\
+      \ milk is naturally creamy and slightly sweet, providing a luxurious mouthfeel\
+      \ that complements the \"signature\" richness without the heaviness of dairy."
+    - "snack:/Sweet: Gold-dusted dark chocolate truffles or apricot galette. The bitterness\
+      \ of dark chocolate provides a sophisticated base for the tea's high notes,\
+      \ while the tart apricot filling in a galette mirrors the tea's bright finish.\r\
+      \n\r\nSavory: Roasted almonds with rosemary or brie on a toasted baguette. The\
+      \ woodsy aroma of rosemary and the creamy, \"melt-in-your-mouth\" texture of\
+      \ brie provide a high-end pairing for this flagship blend."
+    restart: unless-stopped
+  black_cask_bourbon:
+    container_name: black_cask_bourbon
+    category: Black Tea
+    environment:
+    - 'RATIO=1 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/black_tea:latest
+    notes: A bold and intense "gentleman’s" tea that mimics the experience of a finely
+      aged bourbon. It layers the deep, smoky aroma of black tea with rich, sweet
+      notes of vanilla, caramel, and charred oak.
+    volumes:
+    - "additive:/Sweeteners: Maple syrup or brown sugar cubes. Maple syrup is the\
+      \ perfect partner for bourbon notes, adding a woody sweetness. Brown sugar emphasizes\
+      \ the \"charred\" caramel profile of the tea.\r\n\r\nFruit & Herb Infusions:\
+      \ Dried orange peel or a single luxardo cherry. An orange peel mimics an \"\
+      Old Fashioned\" cocktail, providing a bright citrus oil that cuts through the\
+      \ smoky depth.\r\n\r\nMilk & Creams: A splash of heavy cream or frothed oat\
+      \ milk. This tea is \"big\" enough to handle heavy dairy. Cream smooths out\
+      \ the \"tannic bite\" of the black tea, making it taste like a rich, non-alcoholic\
+      \ bourbon cream."
+    - "snack:/Sweet: Dark chocolate with sea salt or pecan pie. The bitterness of\
+      \ the chocolate and the salt highlight the oaky notes, while the \"nutty\" sweetness\
+      \ of a pecan pie matches the bourbon profile perfectly.\r\n\r\nSavory: Smoked\
+      \ gouda or beef jerky. Smoked cheese is a phenomenal pairing for this tea, reinforcing\
+      \ the \"Cask\" element. The savory, salty jerky provides a rugged contrast to\
+      \ the vanilla-bourbon finish."
+    restart: unless-stopped
+  morning_sleepyhead_calypso:
+    container_name: morning_sleepyhead_calypso
+    category: Pu-erh Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=1
+    image: tea_station/pu-erh_tea:latest
+    notes: A "cup of paradise" featuring a rare Kenyan purple tea base, sweetened
+      with notes of brown sugar and brightened with passionfruit and juicy papaya.
+    volumes:
+    - "additive:/Sweeteners: Passion fruit syrup or guava nectar. To lean into the\
+      \ \"Calypso\" tropical theme, these provide a vibrant, \"sunny\" sweetness that\
+      \ helps shake off the morning grogginess better than plain sugar.\r\n\r\nFruit\
+      \ Infusions: Fresh mango slices or mint leaves. Mango adds a luscious, tropical\
+      \ body to the tea, while mint provides a refreshing \"cold\" sensation that\
+      \ helps wake up your senses and clear the cobwebs.\r\n\r\nMilk & Creams: Coconut\
+      \ milk or splash of pineapple juice. Coconut milk keeps the tropical vibe going\
+      \ with a creamy finish, while a splash of pineapple juice (if the tea is a fruit/herbal\
+      \ base) adds a tart \"zing\" to jumpstart your metabolism."
+    - "snack:/Sweet: Dried pineapple rings or coconut macaroons. These snacks echo\
+      \ the island-inspired profile of the tea, providing a chewy, sugary energy boost\
+      \ to start your day.\r\n\r\nSavory: Macadamia nuts or prosciutto-wrapped melon.\
+      \ The rich fats in the nuts provide long-lasting fuel for your morning, while\
+      \ the saltiness of the prosciutto cuts through the tea's sweet tropical notes.\r\
+      \n\r\nNotes: If you're feeling particularly \"sleepyheaded\" before your CS\
+      \ 330 lab or a morning workout at Planet Fitness, try adding a squeeze of fresh\
+      \ lime. The citric acid provides a sharp \"reset\" for your palate and can make\
+      \ the tea's aromatics feel much more energizing."
+    restart: unless-stopped
+  quick-thought_athena:
+    container_name: quick-thought_athena
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=200°F
+    - TIME=240
+    - BREW_COUNT=1
+    image: tea_station/black_tea:latest
+    notes: A sharp and strategic black tea blend featuring bold Assam and complex
+      Oolong, softened by notes of sweet marshmallow and warming brandy, and finished
+      with a "spark of inspiration" from spicy cinnamon.
+    volumes:
+    - "additive:/Sweeteners: Lemon-infused honey or light agave nectar. A clean, citrusy\
+      \ sweetness helps keep your palate \"sharp\" and refreshed, avoiding the mid-study\
+      \ sugar crash that comes with heavier syrups.\r\n\r\nFruit & Herb Infusions:\
+      \ Fresh rosemary sprigs or lemon zest. Rosemary is traditionally associated\
+      \ with \"remembrance\" and wisdom (perfect for the Athena theme), while lemon\
+      \ provides a bright, acidic lift that wakes up the senses.\r\n\r\nMilk & Creams:\
+      \ A splash of unsweetened almond milk. Since this is likely a brighter, mental-clarity\
+      \ blend, heavy dairy might feel too \"slow.\" Almond milk provides a light,\
+      \ nutty finish that complements the herbal notes without weighing you down."
+    - "snack:/Sweet: Dark chocolate (70%+) or lemon poppyseed muffins. Dark chocolate\
+      \ is excellent \"brain food\" for focus, while the tartness of a lemon muffin\
+      \ echoes the bright, intellectual profile of the tea.\r\n\r\nSavory: Walnuts\
+      \ or salted edamame. Walnuts are famously shaped like brains and rich in Omega-3s,\
+      \ making them a thematic and functional pairing for a \"Quick-Thought\" brew.\r\
+      \n\r\nNotes: This is the ideal blend for when you’re deep in the \"logic zone.\"\
+      \ Whether you’re debugging code for CS 330 or analyzing complex social structures\
+      \ for your Gender Studies quiz, the \"Athena\" energy is meant to keep your\
+      \ cognitive gears turning. If you find your mind wandering, try adding a pinch\
+      \ of sea salt; it helps ground the flavors and can provide a tiny electrolyte\
+      \ boost during long sessions."
+    restart: unless-stopped
+  travelers_hearth:
+    container_name: travelers_hearth
+    category: Rooibos Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/rooibos_tea:latest
+    notes: A cozy, "homestyle" herbal blend designed to evoke the feeling of a warm
+      fireplace at the end of a long journey. It features a naturally sweet Red Rooibos
+      base layered with cinnamon, clove, and orange peel.
+    volumes:
+    - "additive:/Sweeteners: Honey or maple syrup or Elderberry syrup. Honey brings\
+      \ out the floral side of the spices, while maple syrup emphasizes the \"woodsy\"\
+      \ and \"toasted\" qualities of the blend.\r\n\r\nFruit & Herb Infusions: Dried\
+      \ apple slices or a whole cinnamon stick. Apple slices add a \"cider\" sweetness,\
+      \ while the cinnamon stick provides a steady, warming heat that gets better\
+      \ the longer it sits in your mug.\r\n\r\nMilk & Creams: Splash of oat milk or\
+      \ heavy cream. This creates a \"latte\" mouthfeel that carries the heavier spices\
+      \ (like clove or nutmeg) across your palate more smoothly."
+    - "snack:/Sweet: Apple turnovers or gingerbread. These treats echo the \"warm\
+      \ kitchen\" aromatics of the tea and provide a buttery base that balances the\
+      \ spice.\r\n\r\nSavory: Sharp white cheddar or smoked almonds. The acidity of\
+      \ the cheese cuts through the tea’s sweetness, and the smokiness of the almonds\
+      \ reinforces the \"hearth\" theme perfectly."
+    restart: unless-stopped
+  chai_love:
+    container_name: chai_love
+    category: Chai Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/chai_tea:latest
+    notes: A bold, high-caffeine spiced black tea blend that combines classic aromatic
+      spices with a "jolt" of energy. It’s designed to be a warming, flavorful alternative
+      to coffee, featuring large pieces of real spices you can see.
+    volumes:
+    - "additive:/Sweeteners: Dark honey or sweetened condensed milk or Elderberry\
+      \ syrup. Dark honey highlights the floral spices, while condensed milk creates\
+      \ a \"street-chai\" style richness that makes the tea feel like a meal in itself.\r\
+      \n\r\nFruit & Herb Infusions: Fresh ginger or a star anise pod. Adding more\
+      \ fresh ginger increases the \"burn\" (the good kind!), while star anise provides\
+      \ a beautiful visual and a sweet, licorice-like aroma.\r\n\r\nMilk & Creams:\
+      \ Whole milk or extra-creamy oat milk. Chai is built for milk; the fats carry\
+      \ the spice oils across your tongue, turning the \"bite\" into a smooth, warming\
+      \ glow."
+    - "snack:/Sweet: Snickerdoodles or banana bread. The cinnamon-sugar on the cookies\
+      \ mirrors the tea's profile, while the density of banana bread provides a comforting,\
+      \ starchy base for the bold spices.\r\n\r\nSavory: Spiced pecans or samosas.\
+      \ The buttery crunch of pecans or the savory, vegetable-filled pastry of a samosa\
+      \ provides a perfect earthy counterpoint to the tea's sweet heat."
+    restart: unless-stopped
+  royal_breakfast:
+    container_name: royal_breakfast
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=240
+    - BREW_COUNT=1
+    image: tea_station/black_tea:latest
+    notes: It is a quintessential English-style black tea blend that is bold, malty,
+      and high in caffeine.
+    volumes:
+    - "additive:/Sweeteners: Turbinado sugar or Manuka honey. The slight molasses\
+      \ notes of raw sugar enhance the tea's natural maltiness, while Manuka honey\
+      \ adds a rich, velvety sweetness that feels appropriately \"royal.\"\r\n\r\n\
+      Fruit & Herb Infusions: Lemon zest or dried currants. A quick twist of lemon\
+      \ zest provides a bright \"crown\" of aroma that cuts through the tannins, while\
+      \ currants add a subtle, dark-fruit depth.\r\n\r\nMilk & Creams: Heavy cream\
+      \ or frothed whole milk. This blend is designed to be \"stout.\" A splash of\
+      \ heavy cream creates a luxurious, silk-like texture that smooths out the brisk\
+      \ finish."
+    - "snack:/Sweet: Shortbread fingers or sultana scones. The high butter content\
+      \ in shortbread is the classic foil for a strong black tea, helping to balance\
+      \ the astringency on the palate.\r\n\r\nSavory: Smoked salmon on rye or a sharp\
+      \ English cheddar. The tea's robust body stands up beautifully to salty, smoky\
+      \ flavors, making it a great partner for a savory brunch.Sweet: Shortbread fingers\
+      \ or sultana scones. The high butter content in shortbread is the classic foil\
+      \ for a strong black tea, helping to balance the astringency on the palate.\r\
+      \n\r\nSavory: Smoked salmon on rye or a sharp English cheddar. The tea's robust\
+      \ body stands up beautifully to salty, smoky flavors, making it a great partner\
+      \ for a savory brunch."
+    restart: unless-stopped
+  victorian_earl_grey:
+    container_name: victorian_earl_grey
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/black_tea:latest
+    notes: A sophisticated and floral twist on the classic Earl Grey, typically blending
+      robust black tea with lavender, rose petals, and cornflowers alongside the signature
+      citrus of bergamot.
+    volumes:
+    - "additive:/Sweeteners: Clover honey or rose simple syrup or Lavender Sumac syrup.\
+      \ Clover honey has a light, floral sweetness that doesn't compete with the bergamot,\
+      \ while rose syrup leans into the \"Victorian Garden\" aesthetic of the tea.\r\
+      \n\r\nFruit & Herb Infusions: Dried rose petals or lemon slices. Adding extra\
+      \ petals makes the cup look stunning and enhances the aroma, while lemon provides\
+      \ a sharp citrus lift that cuts through the floral weight.\r\n\r\nMilk & Creams:\
+      \ A splash of whole milk or frothed soy milk. A traditional Victorian preparation\
+      \ often includes a tiny bit of milk to soften the tannins of the black tea base,\
+      \ creating a smooth, \"antique\" copper-colored brew."
+    - "snack:/Sweet: Lavender scones with clotted cream or petit fours. These quintessential\
+      \ high-tea snacks match the elegance of the blend and provide a buttery base\
+      \ for the floral aromatics.\r\n\r\nSavory: Cucumber and mint finger sandwiches\
+      \ or smoked salmon on a cracker. The coolness of the cucumber or the richness\
+      \ of the salmon provides a sophisticated contrast to the bold bergamot."
+    restart: unless-stopped
+  english_breakfast:
+    container_name: english_breakfast
+    category: Black Tea
+    environment:
+    - 'RATIO=1 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/black_tea:latest
+    notes: Full-bodied, rich, smooth robust, full-bodied black tea known for its rich,
+      malty flavor and deep coppery color. It is typically a blend of Assam, Ceylon,
+      and Kenyan teas, designed to be strong enough to stand up to a splash of milk
+      and sugar.
+    volumes:
+    - "additive:/Sweeteners: Turbinado sugar or clover honey. The slight molasses\
+      \ notes of raw sugar complement the malty depth of the black tea, while clover\
+      \ honey adds a mild, floral sweetness that doesn't mask the tea's natural robustness.\r\
+      \n\r\nFruit Infusions: Lemon slices or dried currants. A classic squeeze of\
+      \ lemon adds a sharp acidity that cuts through the tannins, while currants provide\
+      \ a subtle, dark-fruit sweetness that leans into the traditional \"English\"\
+      \ vibe.\r\n\r\nMilk & Creams: Splash of whole milk or heavy cream. This is the\
+      \ gold standard for English Breakfast. The milk fats bind to the tannins, smoothing\
+      \ out the astringency and creating a rich, copper-colored brew with a velvety\
+      \ mouthfeel."
+    - "snack:/Sweet: Scones with clotted cream or shortbread. The buttery, crumbly\
+      \ texture of these treats is designed to absorb the tea and balance its bold,\
+      \ \"wake-up\" strength.\r\n\r\nSavory: A full breakfast (eggs and bacon) or\
+      \ smoked salmon on toast. Since this is a high-tannin tea, it pairs exceptionally\
+      \ well with protein and fat—the savory notes help temper the tea's briskness.\r\
+      \n\r\nNotes: If you're drinking this before heading to Planet Fitness or a long\
+      \ study session for your CS courses, try adding a pinch of cinnamon. It provides\
+      \ a natural \"sweet\" perception without the sugar crash, keeping you fueled\
+      \ and focused."
+    restart: unless-stopped
+  earl_grey_de_la_crème:
+    container_name: earl_grey_de_la_crème
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/black_tea:latest
+    notes: A smooth, velvety twist on the traditional Earl Grey, featuring a robust
+      black tea base mellowed by creamy vanilla and fragrant blue cornflowers. It’s
+      designed to be richer and less sharp than a standard Earl Grey, making it perfect
+      for a "London Fog" latte.
+    volumes:
+    - "additive:/Sweeteners: Vanilla-infused honey or white sugar. Vanilla honey doubles\
+      \ down on the \"Crème\" profile, while plain white sugar provides a neutral\
+      \ sweetness that lets the floral bergamot shine without adding competing flavors.\r\
+      \n\r\nFruit & Herb Infusions: Dried lavender buds or fresh orange zest. Lavender\
+      \ turns this into a \"London Fog\" style brew with an extra floral layer, while\
+      \ orange zest amplifies the citrus notes of the bergamot.\r\n\r\nMilk & Creams:\
+      \ Frothed whole milk or vanilla oat milk. This tea is practically made for milk.\
+      \ Frothed milk creates that signature \"London Fog\" texture, while vanilla\
+      \ oat milk enhances the creamy, \"cookie-like\" finish."
+    - "snack:/Sweet: Lemon shortbread or vanilla macarons. The citrus in the shortbread\
+      \ cuts through the creamy tea, while macarons match the \"fancy\" and delicate\
+      \ nature of this specific blend.\r\n\r\nSavory: Cucumber sandwiches with cream\
+      \ cheese or mild white cheddar. These light, refreshing snacks provide a clean\
+      \ palate between sips of the rich, aromatic tea.\r\n\r\nNotes: If the bergamot\
+      \ feels a bit too \"perfumey\" or soapy for your taste, a pinch of salt in the\
+      \ cup can actually help suppress those high floral notes and make the vanilla-cream\
+      \ base taste much more prominent."
+    restart: unless-stopped
+  irish_breakfast:
+    container_name: irish_breakfast
+    category: Black Tea
+    environment:
+    - 'RATIO=1 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/black_tea:latest
+    notes: A thick, malty profile with a robust, earthy backbone and deep molasses
+      undertones that leave a sharp, briskly astringent finish.
+    volumes:
+    - "additive:/Sweeteners: Brown sugar(DARK) or Whiskey extract(DROP). The molasses\
+      \ undertones in the sugar enhance the tea's naturally malty profile, while the\
+      \ extract provides an authentic, \"stewy\" Irish soul.\r\n\r\nFruit & Herb Infusions:\
+      \ Elderberry Syrup(STIRRED). This adds a deep, dark berry base that grounds\
+      \ the robust black tea leaves and adds a layer of \"purple\" fruit complexity.\r\
+      \n\r\nMilk & Creams: Heavy cream(FROTHED). Irish Breakfast is specifically blended\
+      \ to stand up to heavy dairy; frothing the cream creates a velvety body that\
+      \ smooths out the strong tannic bite."
+    - "snack:/Irish Soda Bread: The classic pairing; the density of the bread matches\
+      \ the density of the tea.\r\n\r\nWarm Oats: A hearty bowl of oatmeal with a\
+      \ bit of brown sugar.\r\n\r\nFruit Jam: Specifically blackcurrant or plum to\
+      \ play off the Elderberry syrup.\r\n\r\nSavory Sausage: The fats in the sausage\
+      \ are cut perfectly by the tea's astringency.\r\n\r\nSharp Irish Cheddar: A\
+      \ bold cheese that won't get lost next to such a strong brew."
+    restart: unless-stopped
+  lean_green_machine:
+    container_name: lean_green_machine
+    category: Green Tea
+    environment:
+    - 'RATIO=1 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=0
+    image: tea_station/green_tea:latest
+    notes: A crisp and energizing green tea with bright notes of lemon, lemongrass,
+      and a subtle, aromatic hint of bergamot oil.
+    volumes:
+    - "additive:/Sweeteners: Stevia or Monk fruit drops. To stay consistent with the\
+      \ \"lean\" profile, these zero-calorie options provide a clean sweetness without\
+      \ a sugar spike.\r\n\r\nFruit Infusions: Cucumber slices or fresh mint. These\
+      \ emphasize the crisp, refreshing \"green\" notes of the tea and add a cooling,\
+      \ hydrating finish.\r\n\r\nMilk & Creams: Unsweetened almond milk. It has a\
+      \ light, nutty body that doesn't weigh down the delicate green tea base or mask\
+      \ the vegetal flavors."
+    - "snack:/Sweet: Matcha-dusted almonds or green apple slices. The tartness of\
+      \ the apple or the earthy sweetness of the matcha-coated nuts complements the\
+      \ grassy profile of the blend perfectly.\r\n\r\nSavory: Roasted seaweed snacks\
+      \ or edamame with sea salt. These provide a light, umami-rich crunch that balances\
+      \ the natural astringency of the green tea.\r\n\r\nNotes: This tea is often\
+      \ intended for a clean energy boost. Pairing it with protein-rich snacks like\
+      \ the almonds or edamame helps sustain that energy without a heavy \"food coma\"\
+      \ feeling."
+    restart: unless-stopped
+  peaches_n_green:
+    container_name: peaches_n_green
+    category: Green Tea
+    environment:
+    - 'RATIO=1 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=0
+    image: tea_station/green_tea:latest
+    notes: A grassy, delicate green tea base brightened by sun-ripened peach sweetness
+      and a creamy, nutty finish.
+    volumes:
+    - 'additive:/Sweeteners: Fig Leaf Syrup or Agave(LIGHT). The fig leaf syrup provides
+      a creamy, "green" sweetness that anchors the bright peach notes.
+
+
+      Fruit & Herb Infusions: Peach juice(SPLASH) or Honey(PURE). Adding a splash
+      of juice intensifies the stone fruit profile without adding artificial weight.
+
+
+      Milk & Creams: Almond milk(CHILLED). The nuttiness of almond milk pairs naturally
+      with the "green" depth of the fig leaf and tea base.
+
+
+      Texture: Peach slices(FRESH) or Mint(FRESH SPRIG). Fresh fruit adds a juicy
+      texture to the delicate green tea.'
+    - 'snack:/Sweet: Vanilla yogurt, Fresh peaches, or Vanilla wafers.
+
+
+      Savory: Plain granola or Roasted cashews.'
+    restart: unless-stopped
+  chinese_jasmine:
+    container_name: chinese_jasmine
+    category: Green Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=1
+    image: tea_station/green_tea:latest
+    notes: Jasmine, Floral, Delicate, Green Tea
+    volumes:
+    - "additive:/Sweeteners: Use rock sugar (Bing Tang) or a light clover honey. These\
+      \ provide a clean sweetness that doesn't mask the delicate floral aroma.\r\n\
+      \r\nFruit Infusions: Add a thin slice of Asian pear or a dried lychee. The subtle,\
+      \ watery sweetness of the pear complements the jasmine perfectly.\r\n\r\nMilk\
+      \ & Creams: Usually served clear, but if you prefer a latte style, a splash\
+      \ of unsweetened almond milk adds a nutty base that highlights the tea’s grassiness."
+    - "snack:/Sweet: Lemon shortbread or mochi (especially lychee or mango flavored).\
+      \ The acidity in citrus helps \"brighten\" the floral notes.\r\n\r\nSavory:\
+      \ Steamed shrimp dumplings (Har Gow) or lightly salted edamame. Jasmine tea\
+      \ acts as an excellent palate cleanser for light, umami-rich seafood.\r\n\r\n\
+      Notes: Because Chinese Jasmine is often based on green tea, avoid high-tannin\
+      \ snacks like dark chocolate, which can make the combination taste bitter."
+    restart: unless-stopped
+  green_tea:
+    container_name: green_tea
+    category: Green Tea
+    environment:
+    - 'RATIO=1 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=0
+    image: tea_station/green_tea:latest
+    notes: A fresh, antioxidant-rich tea known for its light, grassy profile and varied
+      notes ranging from nutty and toasted to sweet and floral.
+    volumes:
+    - "additive:/Sweeteners: Agave nectar or honey. Agave provides a clean, neutral\
+      \ sweetness that won't distract from the tea's natural vegetal notes. Honey\
+      \ adds a floral lift that can help mask some of the grassiness if you find it\
+      \ too intense.\r\n\r\nFruit Infusions: Fresh lemon juice or sliced ginger. Lemon\
+      \ adds a bright acidity that increases the bioavailability of the tea's antioxidants,\
+      \ while ginger adds a warming \"zing\" that balances the cooling nature of the\
+      \ green leaves.\r\n\r\nMilk & Creams: Generally avoided, as dairy can bind to\
+      \ the catechins (antioxidants) and reduce the health benefits. If you prefer\
+      \ a latte, unsweetened soy milk or cashew milk provides a creamy texture that\
+      \ complements the nutty undertones of many green teas."
+    - "snack:/Sweet: Fresh mango or dark chocolate. The tropical sweetness of mango\
+      \ pairs beautifully with the grassy profile, while the bitterness of dark chocolate\
+      \ brings out the hidden \"umami\" in the tea.\r\n\r\nSavory: Roasted seaweed\
+      \ or edamame with sea salt. These snacks share the tea's marine, \"green\" flavor\
+      \ profile, creating a cohesive and satisfying savory experience.\r\n\r\nNotes:\
+      \ If the tea tastes too \"bitter\" or \"fishy,\" you might be steeping it at\
+      \ too high a temperature. Try letting your water sit for a minute after boiling\
+      \ (aiming for about 175°F) to keep the flavor sweet and light."
+    restart: unless-stopped
+  lavender_chamomile:
+    container_name: lavender_chamomile
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/herbal_tea:latest
+    notes: A soft, serene herbal blend with floral chamomile blossoms, aromatic lavender,
+      and a crisp hint of lemongrass.
+    volumes:
+    - "additive:/Sweeteners: Lavender honey or vanilla bean syrup. Lavender honey\
+      \ reinforces the floral profile, while vanilla provides a creamy, comforting\
+      \ sweetness that rounds out the herbal edges.\r\n\r\nFruit Infusions: Dried\
+      \ blueberries or lemon peel. Blueberries offer a dark, subtle sweetness that\
+      \ pairs beautifully with lavender's purple notes, while lemon peel adds a clean,\
+      \ bright lift without the acidity of the juice.\r\n\r\nMilk & Creams: Oat milk\
+      \ or warm whole milk. The natural creaminess of oat milk enhances the \"sleepytime\"\
+      \ vibe, creating a smooth, latte-like texture that highlights the chamomile's\
+      \ hay-like sweetness."
+    - "snack:/Sweet: Honey-lavender shortbread or vanilla bean yogurt. The buttery\
+      \ crunch of shortbread or the cool creaminess of yogurt provides a gentle, sweet\
+      \ companion to the floral tea.\r\n\r\nSavory: Goat cheese with a drizzle of\
+      \ honey on a cracker or walnuts. The tang of goat cheese and the earthy fat\
+      \ of walnuts provide a sophisticated, grounded balance to the airy floral notes.\r\
+      \n\r\nNotes: This is the ultimate relaxation blend. If you find the lavender\
+      \ too \"soapy,\" adding a cinnamon stick can help ground the floral fragrance\
+      \ with a warm, woody spic"
+    restart: unless-stopped
+  nutty_almond_cream:
+    container_name: nutty_almond_cream
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=1
+    image: tea_station/herbal_tea:latest
+    notes: A rich, dessert-like profile dominated by toasted almond and sweet cream
+      with a deep, earthy green undertone.
+    volumes:
+    - 'additive:/Sweeteners: Fig Leaf Syrup or Brown sugar(DARK). Fig leaf amplifies
+      the natural nuttiness of the almond, while brown sugar provides a molasses depth.
+
+
+      Fruit & Herb Infusions: Almond extract(DROP) or Vanilla(DRIED). These reinforce
+      the "Cream" identity, making the tea taste like a liquid pastry.
+
+
+      Milk & Creams: Whole milk(FROTHED). High-fat dairy is essential to carry the
+      almond oils and create a luxurious mouthfeel.
+
+
+      Toasted Note: Cinnamon(DUSTED) or Nutmeg(GROUND). A dusting of warm spice adds
+      a "toasted" aroma to the almond profile.'
+    - 'snack:/Sweet: Marzipan, Almond biscotti, or Dark chocolate.
+
+
+      Savory: Sliced pears or Roasted almonds.'
+    restart: unless-stopped
+  mint_cocoa:
+    container_name: mint_cocoa
+    category: Rooibos Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/rooibos_tea:latest
+    notes: A smooth, comforting rooibos tea with the nostalgic flavor of an Andes
+      Mint—cool peppermint followed by rich, velvety chocolate.
+    volumes:
+    - "additive:/Sweeteners: Peppermint syrup or agave nectar. Peppermint syrup intensifies\
+      \ the \"cool\" factor, while agave provides a clean sweetness that allows the\
+      \ rich cocoa notes to remain the star.\r\n\r\nFruit Infusions: Fresh raspberries\
+      \ or dried cherries. Red fruits are the classic partner for chocolate and mint;\
+      \ the tartness of the berries cuts through the heavy cocoa for a brighter finish.\r\
+      \n\r\nMilk & Creams: Frothed oat milk or heavy cream. Oat milk has a natural\
+      \ toasted-grain flavor that mimics a biscuit or pie crust, while heavy cream\
+      \ turns the tea into a luxurious, \"liquid truffle\" experience."
+    - "snack:/Sweet: Dark chocolate brownies or vanilla wafers. The brownies double\
+      \ down on the cocoa, while the light, crispy vanilla wafers provide a neutral,\
+      \ crunchy contrast that cleanses the palate between sips.\r\n\r\nSavory: Salted\
+      \ pretzels or roasted pecans. Salt is a powerful flavor enhancer for chocolate;\
+      \ the crunch and saltiness of pretzels make the cocoa notes in the tea taste\
+      \ deeper and more complex.\r\n\r\nNotes: This blend often mimics the flavor\
+      \ of an \"After Eight\" thin. To enhance the \"Chill\" effect, try adding a\
+      \ single drop of vanilla extract; it acts as a bridge between the sharp menthol\
+      \ of the mint and the earthy bitterness of the cocoa."
+    restart: unless-stopped
+  maui_mango:
+    container_name: maui_mango
+    category: Fruit Tea
+    environment:
+    - 'RATIO=2 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/fruit_tea:latest
+    notes: A vibrant, tropical escape featuring bold notes of sun-ripened mango and
+      sweet pineapple, balanced by a zesty citrus orange finish.
+    volumes:
+    - "additive:/Sweeteners: Turbinado (raw) sugar or coconut sugar. These have a\
+      \ slight molasses or caramel-like undertone that grounds the bright, tropical\
+      \ acidity of the mango.\r\n\r\nFruit Infusions: Fresh pineapple chunks or lime\
+      \ slices. Adding pineapple pushes the \"tropical island\" profile even further,\
+      \ while lime adds a zesty brightness that prevents the mango from tasting too\
+      \ \"syrupy.\"\r\n\r\nMilk & Creams: Full-fat coconut milk or cream of coconut.\
+      \ Using coconut milk transforms the tea into a \"Mango Sticky Rice\" flavor\
+      \ profile—rich, creamy, and deeply tropical."
+    - "snack:/Sweet: Dried chili-mango or macadamia nut cookies. The spice from the\
+      \ chili-mango provides a heat contrast to the cool tea, while the buttery macadamia\
+      \ nuts match the smooth texture of the mango.\r\n\r\nSavory: Plantain chips\
+      \ or coconut shrimp. The starchiness of plantains or the crispy, savory coating\
+      \ of coconut shrimp balances the high fruit sugars in the tea.\r\n\r\nNotes:\
+      \ If you are brewing this as an iced tea, try adding a few fresh mint leaves\
+      \ at the very end; the menthol provides a \"cooling\" sensation that makes the\
+      \ tropical fruit flavors feel even more refreshing in the heat."
+    restart: unless-stopped
+  ginger_sweet_peach:
+    container_name: ginger_sweet_peach
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=1
+    image: tea_station/herbal_tea:latest
+    notes: A warming, restorative herbal blend featuring juicy chunks of sweet peach,
+      spicy ginger, and a subtle, floral hint of rose and hibiscus.
+    volumes:
+    - "additive:/Sweeteners: Brown sugar or honey. Brown sugar gives the tea a \"\
+      peach cobbler\" depth, while honey emphasizes the floral side of the fruit and\
+      \ the warmth of the ginger.\r\n\r\nFruit Infusions: Cinnamon sticks or fresh\
+      \ ginger slices. Cinnamon adds a \"spiced peach\" dimension, while adding fresh\
+      \ ginger slices intensifies the \"zing\" if the dried ginger in the tea is too\
+      \ mild for your taste.\r\n\r\nMilk & Creams: Oat milk or coconut milk. These\
+      \ provide a creamy, cereal-like base that pairs well with the \"stone fruit\"\
+      \ notes of the peach and helps mellow the ginger's heat."
+    - "snack:/Sweet: Ginger snaps or vanilla yogurt with granola. The cookies double\
+      \ down on the spice, while the yogurt provides a cool, creamy contrast to the\
+      \ warming ginger.\r\n\r\nSavory: Honey-glazed ham slices or spiced pecans. The\
+      \ sweetness of the glaze or the nuts bridges the gap between the sugary peach\
+      \ and the sharp ginger bite.\r\n\r\nNotes: This blend is highly aromatic. If\
+      \ you're feeling a bit under the weather, adding a pinch of cayenne pepper as\
+      \ an add-in can turn this into a potent, warming tonic that clears the sinuses\
+      \ while remaining delicious."
+    restart: unless-stopped
+  lemon_ginger_tumeric:
+    container_name: lemon_ginger_tumeric
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=300
+    - BREW_COUNT=1
+    image: tea_station/herbal_tea:latest
+    notes: A warm, invigorating herbal blend with a spicy ginger kick, bright citrus
+      zest, and a grounding, earthy turmeric depth.
+    volumes:
+    - "additive:/Sweeteners: Manuka honey or maple syrup. The earthy, robust sweetness\
+      \ of maple syrup pairs beautifully with the woodiness of turmeric, while honey\
+      \ is the classic partner for soothing ginger and lemon.\r\n\r\nFruit Infusions:\
+      \ Orange slices or black pepper. While not a fruit, a pinch of black pepper\
+      \ is essential—it contains piperine, which significantly increases the absorption\
+      \ of curcumin from the turmeric. Orange adds a citrusy depth that bridges the\
+      \ gap between the tart lemon and spicy ginger.\r\n\r\nMilk & Creams: Warm coconut\
+      \ milk or cashew milk. This creates a \"Golden Milk\" style beverage. The healthy\
+      \ fats in these milks also help your body process the turmeric more effectively."
+    - "snack:/Sweet: Candied ginger or dark chocolate (70%+ cacao). The candied ginger\
+      \ doubles down on the spice, while the bitterness of dark chocolate provides\
+      \ a sophisticated contrast to the bright lemon notes.\r\n\r\nSavory: Roasted\
+      \ chickpeas with cumin or hummus with warm pita. The earthy spices in Middle\
+      \ Eastern or Indian-inspired snacks harmonize with the savory undertones of\
+      \ turmeric and the heat of the ginger.\r\n\r\nNotes: This is a very warming,\
+      \ \"anti-inflammatory\" style tea. If the ginger feels too sharp on the back\
+      \ of your throat, a small knob of unsalted butter or ghee stirred in can mellow\
+      \ the \"burn\" and add a silky mouthfeel."
+    restart: unless-stopped
+  fireberry:
+    container_name: fireberry
+    category: Rooibos Tea
+    environment:
+    - 'RATIO=2 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=2
+    image: tea_station/rooibos_tea:latest
+    notes: A vibrant, crimson Cranberry Hibiscus Rooibos blend known for its tart
+      and sweet flavor profile. It is designed to be a vitamin-rich, caffeine-free
+      booster that works beautifully both hot and iced.
+    volumes:
+    - "additive:/Sweeteners: Agave nectar, raspberry simple syrup, Sour Cherry syrup.\
+      \ Agave provides a clean, neutral sweetness that balances the \"zing\" of the\
+      \ berries, while a fruit-based syrup will intensify the \"Fireberry\" profile.\r\
+      \n\r\nFruit & Herb Infusions: Fresh ginger or frozen blackberries. Ginger adds\
+      \ a spicy heat that lives up to the \"Fire\" in the name, while frozen blackberries\
+      \ act as flavor-packed ice cubes if you prefer it chilled.\r\n\r\nMilk & Creams:\
+      \ Best avoided. The high acidity from the hibiscus and berries in most Fireberry\
+      \ blends will cause dairy to curdle. If you want a \"creamy\" treat, a splash\
+      \ of coconut milk creates a beautiful, pink, tropical-style drink."
+    - "snack:/Sweet: Dark chocolate or berry-filled crepes. The bitterness of dark\
+      \ chocolate is the perfect foil for the tea's tartness.\r\n\r\nSavory: Spiced\
+      \ pecans or sharp white cheddar. The salt and crunch of the pecans or the tang\
+      \ of the cheese provide a robust anchor for the bright, fruity punch of the\
+      \ tea."
+    restart: unless-stopped
+  very_berry:
+    container_name: very_berry
+    category: Fruit Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=0
+    image: tea_station/fruit_tea:latest
+    notes: A bright and tangy caffeine-free herbal tea with a bouquet of tart hibiscus,
+      sweet blueberries, and juicy strawberries.
+    volumes:
+    - "additive:/Sweeteners: Agave nectar or berry-infused simple syrup. Agave provides\
+      \ a clean, liquid sweetness that doesn't compete with the tartness, while a\
+      \ berry syrup will amplify the \"Very Berry\" punch.\r\n\r\nFruit Infusions:\
+      \ Fresh blueberries or mint leaves. Dropping in fresh berries adds texture and\
+      \ reinforces the flavor as they steep, while mint provides a \"berry mojito\"\
+      \ freshness that cuts through the sugar.\r\n\r\nMilk & Creams: Heavy coconut\
+      \ milk. This turns the tea into a \"berry smoothie\" or \"berries and cream\"\
+      \ profile. The high fat content in coconut milk softens the acidic bite of the\
+      \ hibiscus or fruit pieces often found in these blends."
+    - "snack:/Sweet: Greek yogurt with granola or mixed berry muffins. The tang of\
+      \ the yogurt complements the tea’s acidity, while the muffin provides a soft,\
+      \ buttery contrast to the bright fruit notes.\r\n\r\nSavory: Goat cheese on\
+      \ a cracker or lightly salted popcorn. The \"funky\" tang of goat cheese is\
+      \ a classic partner for forest fruits, and the salt from the popcorn makes the\
+      \ berry flavors taste more vivid.\r\n\r\nNotes: This blend is particularly high\
+      \ in Vitamin C and antioxidants. If you are drinking this after a session at\
+      \ Planet Fitness, you can drop in a scoop of unflavored collagen or protein\
+      \ powder; the strong berry flavor easily masks the supplement taste, making\
+      \ it a refreshing recovery drink."
+    restart: unless-stopped
+  passion_berry_jolt:
+    container_name: passion_berry_jolt
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/black_tea:latest
+    notes: A bold, high-caffeine black tea blend that packs a punch with tangy raspberry,
+      sweet passion fruit, and bright tropical pineapple.
+    volumes:
+    - "additive:/Sweeteners: Agave nectar or raspberry-infused simple syrup. Agave\
+      \ provides a clean, neutral sweetness that won't distract from the tart berries,\
+      \ while a berry syrup \"overclocks\" the fruit profile.\r\n\r\nFruit & Herb\
+      \ Infusions: Frozen mixed berries or fresh mint. Frozen berries act as \"flavor\
+      \ ice cubes\" that keep the tea cool without watering it down—perfect for a\
+      \ \"Jolt.\" Mint adds a refreshing, sharp finish that cuts through the sugar.\r\
+      \n\r\nMilk & Creams: Generally avoided. The high acidity of the passion fruit\
+      \ and berries can cause dairy to curdle. If you want a \"creamy\" version, use\
+      \ a splash of coconut milk, which creates a \"Pink Drink\" style flavor profile."
+    - "snack:/Sweet: Greek yogurt with granola or mixed berry muffins. The tang of\
+      \ the yogurt complements the tea’s acidity, while a muffin provides a soft,\
+      \ buttery contrast to the bright fruit notes.\r\n\r\nSavory: Lightly salted\
+      \ edamame or turkey jerky. These high-protein snacks are great for keeping your\
+      \ energy stable alongside the \"Jolt\" of the tea.\r\n\r\nNotes: If you're drinking\
+      \ this before heading to Planet Fitness or during a long night of CS 330 debugging,\
+      \ the \"Passion Berry Jolt\" is a great alternative to a standard energy drink.\
+      \ To make it even more \"functional,\" you can mix in a scoop of unflavored\
+      \ collagen—the strong berry flavor completely masks it."
+    restart: unless-stopped
+  strawberry_lemonade:
+    container_name: strawberry_lemonade
+    category: Fruit Tea
+    environment:
+    - 'RATIO=2 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/fruit_tea:latest
+    notes: A vibrant, tart herbal infusion of zesty lemon and sweet summer berries
+      with a cooling, crisp mint lift.
+    volumes:
+    - 'additive:/Sweeteners: Sour Cherry Syrup or Stevia(POWDERED). Sour cherry adds
+      a "red" tartness that bridges the gap between the strawberry and lemon.
+
+
+      Fruit & Herb Infusions: Strawberries(SLICED) or Lemon(FRESH WEDGES). Fresh fruit
+      is vital here to keep the "lemonade" profile bright and authentic.
+
+
+      Milk & Creams: Coconut milk(CHILLED). This creates a "pink drink" style texture
+      that is incredibly refreshing for a post-workout recovery.
+
+
+      Zesty Lift: Mint(FRESH SPRIG) or Hibiscus(DRIED PETALS). Mint provides a cooling
+      finish while hibiscus adds a deeper ruby color and extra tartness.'
+    - 'snack:/Sweet: Sugar cookies, Fruit tart, or Vanilla wafers.
+
+
+      Savory: Salted pretzels or Plain crackers.'
+    restart: unless-stopped
+  peach_party:
+    container_name: peach_party
+    category: Fruit Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/fruit_tea:latest
+    notes: A sweet and summery herbal tea with juicy notes of ripe peach, tart hibiscus,
+      and a crisp apple finish.
+    volumes:
+    - "additive:/Sweeteners: Peach nectar or clover honey. Peach nectar intensifies\
+      \ the fruit flavor, while clover honey adds a delicate, floral sweetness that\
+      \ doesn't overwhelm the peach.\r\n\r\nFruit Infusions: Fresh basil leaves or\
+      \ frozen raspberries. Basil provides a sophisticated, peppery herbal contrast\
+      \ to the sweet peach, while frozen raspberries act as flavor-releasing ice cubes\
+      \ that add a tart \"blush\" to the tea.\r\n\r\nMilk & Creams: Heavy cream or\
+      \ vanilla almond milk. Adding a splash of cream creates a \"Peaches and Cream\"\
+      \ dessert profile that is rich and comforting."
+    - "snack:/Sweet: Vanilla pound cake or apricot galette. The buttery, dense crumb\
+      \ of the pound cake is the perfect vessel for the juicy, light notes of the\
+      \ peach.\r\n\r\nSavory: Prosciutto-wrapped melon or mild white cheddar. The\
+      \ saltiness of the cured meat or the creamy tang of the cheddar cuts through\
+      \ the sugary peach notes, creating a balanced palate.\r\n\r\nNotes: If the peach\
+      \ flavor feels too \"candy-like,\" adding a squeeze of fresh lemon juice can\
+      \ provide the necessary acidity to make the peach taste more like the fresh,\
+      \ fuzzy fruit."
+    restart: unless-stopped
+  assam:
+    container_name: assam
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/black_tea:latest
+    notes: A bold, full-bodied black tea from the lowlands of Northeast India. It
+      is famous for its strong, malty flavor and deep amber color. Because of its
+      natural robustness and high caffeine content, it is the primary base for most
+      "Breakfast" blends and is sturdy enough to handle milk and sugar.
+    volumes:
+    - "additive:/Sweeteners: Brown sugar or jaggery or Sour Cherry syrup. The molasses\
+      \ undertones in brown sugar perfectly complement the \"malty\" profile of Assam.\
+      \ Jaggery provides a traditional, earthy sweetness that feels authentic to the\
+      \ tea's Indian origins.\r\n\r\nFruit & Herb Infusions: Dried orange peel or\
+      \ fresh ginger. Orange peel adds a zesty top note that cuts through the \"heaviness\"\
+      \ of the brew, while ginger adds a spicy warmth that makes the tea feel more\
+      \ robust.\r\n\r\nMilk & Creams: Whole milk or evaporated milk. Assam is the\
+      \ backbone of most \"Irish Breakfast\" blends because it stands up so well to\
+      \ dairy. Evaporated milk makes it exceptionally rich and \"stewy,\" which is\
+      \ perfect for a cold Southern Illinois night."
+    - "snack:/Sweet: Chocolate digestive biscuits or date cake. The malty tea helps\
+      \ \"melt\" the chocolate and stands up to the dense, dark sweetness of dates.\r\
+      \n\r\nSavory: A hearty breakfast burrito or sharp cheddar on toast. Assam is\
+      \ one of the few teas strong enough to compete with savory fats and spices.\
+      \ It acts as a bold palate cleanser for a heavy meal."
+    restart: unless-stopped
+  darjeeling:
+    container_name: darjeeling
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=195°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/black_tea:latest
+    notes: Often called the "Champagne of Teas," this light-colored black tea is grown
+      in the foothills of the Himalayas. It is prized for its complex, floral aroma
+      and a unique, slightly astringent flavor known as "muscatel"—reminiscent of
+      muscat grapes.
+    volumes:
+    - "additive:/Sweeteners: Light acacia honey or white sugar cubes or Fig Leaf syrup.\
+      \ You want a sweetener that is as transparent as possible. Acacia honey is mild\
+      \ and won't overwhelm the tea's floral profile, while white sugar provides a\
+      \ sharp, clean lift.\r\n\r\nFruit & Herb Infusions: A thin slice of lemon or\
+      \ dried white currants. Lemon highlights the \"brisk\" quality of the tea, while\
+      \ white currants lean into the natural stone-fruit flavors often found in a\
+      \ Second Flush Darjeeling.\r\n\r\nMilk & Creams: Best enjoyed black. Unlike\
+      \ English Breakfast, Darjeeling is prized for its thin, astringent body and\
+      \ complex aroma, which milk tend to \"bury.\" If you must, use a tiny splash\
+      \ of skim milk just to take the edge off the tannins."
+    - "snack:/Sweet: Madeleines or apricot tarts. The light, buttery sponge of a Madeleine\
+      \ is perfect for soaking up the tea without competing with its flavor, while\
+      \ the tartness of apricot echoes the tea's fruity undertones.\r\n\r\nSavory:\
+      \ Goat cheese on a water cracker or mild cucumber sandwiches. The tang of goat\
+      \ cheese provides a sophisticated contrast to the tea's floral \"nose,\" while\
+      \ cucumber sandwiches keep the experience light and refreshing."
+    restart: unless-stopped
+  ceylon_orange_pekoe:
+    container_name: ceylon_orange_pekoe
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/black_tea:latest
+    notes: A bright, medium-bodied black tea from Sri Lanka (formerly Ceylon). Despite
+      the name, it has no orange flavor; "Orange Pekoe" is a grading term referring
+      to the long, whole tea leaves. It is known for its crisp, brisk taste and a
+      beautiful golden-amber color, often featuring subtle floral and citrus notes.
+    volumes:
+    - "additive:/Sweeteners: Clover honey or white sugar. Ceylon is known for being\
+      \ \"clean\" and slightly citrusy; these sweeteners provide a light lift without\
+      \ muddying the tea's bright profile.\r\n\r\nFruit & Herb Infusions: Lemon slices\
+      \ or fresh mint. Ceylon is the base of many famous iced teas because it pairs\
+      \ so well with citrus and mint. Lemon enhances the natural \"zest\" of the tea,\
+      \ while mint adds a cooling finish.\r\n\r\nMilk & Creams: A splash of 2% milk\
+      \ or cashew milk. Ceylon is typically lighter and more \"brisk\" than Assam.\
+      \ A lighter milk adds a smooth texture without burying the tea's delicate, honey-colored\
+      \ notes."
+    - "snack:/Sweet: Lemon tarts or vanilla wafers. The acidity of a lemon tart highlights\
+      \ the tea's bright notes, while the simplicity of a vanilla wafer provides a\
+      \ subtle, sweet crunch.\r\n\r\nSavory: Chicken salad sandwiches or mild Swiss\
+      \ cheese. The \"crisp\" finish of Ceylon acts as a palate cleanser for light\
+      \ proteins and creamy, nutty cheeses."
+    restart: unless-stopped
+  milk_oolong:
+    container_name: milk_oolong
+    category: Oolong Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=195°F
+    - TIME=180
+    - BREW_COUNT=0
+    image: tea_station/oolong_tea:latest
+    notes: A unique and highly prized tea known for its distinctive creamy, buttery
+      aroma and naturally smooth, velvety texture. While it contains no actual dairy,
+      the flavor profile is remarkably reminiscent of sweet milk or buttered toast,
+      often accompanied by light floral notes.
+    volumes:
+    - "additive:/Sweeteners: Light wildflower honey or white rock sugar or Lavender\
+      \ Sumac syrup. You want a very \"clean\" sweetener that won't compete with the\
+      \ tea's natural buttery profile.\r\n\r\nFruit & Herb Infusions: Dried apricot\
+      \ or a single vanilla bean. Apricot highlights the stone-fruit undertones of\
+      \ the Oolong, while vanilla emphasizes the \"milk\" aspect without actually\
+      \ adding dairy.\r\n\r\nMilk & Creams: Enjoy it plain first. The \"milk\" in\
+      \ the name usually comes from the cultivar's natural flavor, not added dairy.\
+      \ However, if you want to lean into it, a tiny splash of warm whole milk or\
+      \ condensed milk can turn this into a decadent, silky treat."
+    - "snack:/Sweet: Vanilla macarons or white chocolate. The light, airy texture\
+      \ of a macaron or the buttery melt of white chocolate perfectly mirrors the\
+      \ \"velvet\" mouthfeel of the tea.\r\n\r\nSavory: Lightly salted cashews or\
+      \ mild brie. Cashews share that same \"buttery\" fat profile as the tea, and\
+      \ a soft cheese like brie provides a creamy, savory anchor."
+    restart: unless-stopped
+  silver_needle:
+    container_name: silver_needle
+    category: White Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=0
+    image: tea_station/white_tea:latest
+    notes: An ultra-delicate, pillowy white tea with soft floral notes of honeyed
+      rose and a faint, nectar-like peach sweetness.
+    volumes:
+    - 'additive:/Sweeteners: Lavender Sumac Syrup or Rock sugar(CRUSHED). The sumac''s
+      dry acidity highlights the ultra-delicate nature of the white tea buds.
+
+
+      Fruit & Herb Infusions: White peach(SLICED) or Rose buds(DRIED). These are "light"
+      infusions that won''t overpower the tea''s natural hay-like sweetness.
+
+
+      Milk & Creams: 2% Milk(WARM). Only a tiny splash is needed to add body without
+      masking the tea''s subtle complexity.
+
+
+      Floral Lift: Silver leaf(DRIED) or Jasmine buds(DRIED). Adds a visual elegance
+      and a soft, perfumed aromatic layer.'
+    - 'snack:/Sweet: White chocolate, Chilled melon, or Meringues.
+
+
+      Savory: Fresh cucumber or Salted crackers.'
+    restart: unless-stopped
+  jasmine_pearls:
+    container_name: jasmine_pearls
+    category: Green Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=0
+    image: tea_station/green_tea:latest
+    notes: A delicate, velvety tea with a heavy floral aroma, natural honey-like sweetness,
+      and a clean, refreshing finish.
+    volumes:
+    - "additive:/Sweeteners: Acacia honey or agave syrup. Since Jasmine Pearls are\
+      \ naturally sweeter and more delicate than standard jasmine tea, you want a\
+      \ sweetener that is light and transparent rather than \"heavy\" or \"dark.\"\
+      \r\n\r\nFruit Infusions: White peach slices or white grapes. These enhance the\
+      \ natural floral sweetness of the pearls without adding acidity.\r\n\r\nMilk\
+      \ & Creams: It is best served clear to appreciate the hand-rolled leaves, but\
+      \ a dash of light coconut milk can create a tropical, creamy profile that pairs\
+      \ well with the floral notes."
+    - "snack:/Sweet: Vanilla macarons or a fruit tart with custard. The creaminess\
+      \ of the filling provides a lovely contrast to the \"clean\" finish of the pearls.\r\
+      \n\r\nSavory: Cucumber sandwiches with herbed cream cheese or mild goat cheese\
+      \ on a cracker. The cooling nature of the cucumber and the tang of the cheese\
+      \ highlight the tea's elegance.\r\n\r\nNotes: Jasmine Pearls are premium and\
+      \ often tolerate multiple steepings. The first steep is the most floral, while\
+      \ the second and third steepings bring out more of the base green tea's nuttiness—adjust\
+      \ your snacking speed accordingly!"
+    restart: unless-stopped
+  japanese_sencha:
+    container_name: japanese_sencha
+    category: Green Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=2
+    image: tea_station/green_tea:latest
+    notes: A refreshing, vibrant green tea with notes of fresh-cut grass, steamed
+      spinach, and a savory, seaweed-like umami finish.
+    volumes:
+    - "additive:/Sweeteners: Avoid heavy syrups. A tiny amount of mirin-style simple\
+      \ syrup or a very light clover honey works if you must sweeten, but Sencha is\
+      \ best enjoyed for its natural \"umami\" and grassy sweetness.\r\n\r\nFruit\
+      \ Infusions: Sudachi or Yuzu slices. These Japanese citruses provide a sharp,\
+      \ aromatic acidity that cuts through the oceanic, savory notes of the tea.\r\
+      \n\r\nMilk & Creams: Generally not recommended as it clashes with the \"seaweed\"\
+      \ profile. However, a small amount of soy milk can work, as the bean notes harmonize\
+      \ with the vegetal qualities of the Sencha."
+    - "snack:/Sweet: Mochi (Red Bean/Anko) or Matcha-dusted almonds. The earthy sweetness\
+      \ of the bean paste provides a perfect heavy counterweight to the light, astringent\
+      \ tea.\r\n\r\nSavory: Rice crackers (Senbei) or Nori-wrapped snacks. The salt\
+      \ and toasted rice flavors enhance the natural \"ocean\" and \"brothy\" characteristics\
+      \ of a high-quality Sencha.\r\n\r\nNotes: Sencha is very sensitive to temperature.\
+      \ If the tea tastes too bitter, it was likely brewed with water that was too\
+      \ hot. Pair it with mildly salted popcorn to bring out the hidden sweetness\
+      \ of a slightly over-steeped cup."
+    restart: unless-stopped
+  jasmine:
+    container_name: jasmine
+    category: Green Tea
+    environment:
+    - 'RATIO=1 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=0
+    image: tea_station/green_tea:latest
+    notes: Floral, fragrant green
+    volumes:
+    - "additive:/Sweeteners: Rock sugar (Bing Tang) or light wildflower honey. Because\
+      \ Barrington uses a Ceylon green tea base, it has a slightly brisker profile\
+      \ than Chinese versions; these sweeteners provide a clean lift without overpowering\
+      \ the bold jasmine aroma.\r\n\r\nFruit Infusions: Dried lychee or Asian pear\
+      \ slices. The lychee echoes the tropical, floral notes of the jasmine, while\
+      \ the pear adds a refreshing, watery sweetness that balances the tea's body.\r\
+      \n\r\nMilk & Creams: Splash of unsweetened soy milk. The creamy, slightly bean-like\
+      \ flavor of soy milk pairs exceptionally well with the \"bold\" jasmine flavoring\
+      \ and the briskness of the Ceylon green base."
+    - "snack:/Sweet: Almond cookies or lemon sponge cake. The nuttiness of the almond\
+      \ or the citrus zing of the lemon highlights the floral fragrance and cuts through\
+      \ the tea's natural astringency.\r\n\r\nSavory: Salted cashews or shrimp crackers.\
+      \ The salt and umami in these snacks make the floral jasmine notes \"pop\" while\
+      \ the fats in the nuts smooth out the tea's finish.\r\n\r\nNotes: Barrington's\
+      \ blend is known for being incredibly fragrant—some users report it can last\
+      \ through 4–5 mugs. If it feels too \"powerful,\" a pinch of salt in the brew\
+      \ can mellow the intensity and reveal the hidden sweetness of the Ceylon leaves."
+    restart: unless-stopped
+  christmas_chai:
+    container_name: christmas_chai
+    category: Chai Tea
+    environment:
+    - 'RATIO=1 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/chai_tea:latest
+    notes: A festive and robust black tea blend featuring warm notes of cinnamon,
+      ginger, cloves, and cardamom, often rounded out with a hint of vanilla or orange
+      peel.
+    volumes:
+    - "additive:/Sweeteners: Dark brown sugar or maple syrup. These choices bring\
+      \ out the molasses-like depth of the chai spices and emphasize the \"toasted\"\
+      \ holiday notes.\r\n\r\nFruit Infusions: Dried orange wheels or apple slices.\
+      \ Orange provides a classic citrus lift that brightens the heavier spices like\
+      \ clove and star anise, while apple adds a soft, \"cider-like\" sweetness.\r\
+      \n\r\nMilk & Creams: Whole milk or frothed oat milk. Chai is traditionally enjoyed\
+      \ with milk; the fats help carry the spice oils across the palate, and oat milk’s\
+      \ natural graininess mimics a warm holiday pie crust."
+    - "snack:/Sweet: Gingerbread cookies or fruitcake. The ginger and molasses in\
+      \ these treats harmonize with the warming spices of the tea, creating a quintessential\
+      \ holiday flavor profile.\r\n\r\nSavory: Smoked gouda or roasted almonds. The\
+      \ smokiness of the cheese and the buttery crunch of the nuts provide a grounded,\
+      \ savory counterpoint to the tea's aromatic intensity.\r\n\r\nNotes: If the\
+      \ spice kick is a bit too strong, adding a vanilla bean or a drop of vanilla\
+      \ extract can help \"round out\" the flavors, making the tea taste smoother\
+      \ and more like a dessert."
+    restart: unless-stopped
+  orange_spice:
+    container_name: orange_spice
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=240
+    - BREW_COUNT=1
+    image: tea_station/black_tea:latest
+    notes: A classic, warming black tea blend featuring brisk tea leaves, zesty dried
+      orange peel, and aromatic spices like cinnamon and cloves.
+    volumes:
+    - "additive:/Sweeteners: Orange blossom honey or maple syrup. Orange blossom honey\
+      \ highlights the floral citrus notes, while maple syrup adds a rich, autumnal\
+      \ depth that pairs beautifully with cinnamon and clove.\r\n\r\nFruit Infusions:\
+      \ Cinnamon sticks or fresh cranberries. Adding an extra cinnamon stick intensifies\
+      \ the \"spice\" side, while cranberries add a tart, festive pop of color and\
+      \ flavor.\r\n\r\nMilk & Creams: Vanilla soy milk or half-and-half. This transforms\
+      \ the tea into a \"spiced creamsicle\" profile, mellowing the citric acidity\
+      \ into a smooth, dessert-like drink."
+    - "snack:/Sweet: Dark chocolate-covered ginger or orange marmalade on toast. The\
+      \ bitterness of dark chocolate is the perfect foil for bright citrus, and the\
+      \ ginger doubles down on the warming spice.\r\n\r\nSavory: Spiced pecans or\
+      \ sharp white cheddar. The salt and crunch of the nuts or the creamy tang of\
+      \ the cheese provide a savory anchor for the bold, fruity punch of the tea.\r\
+      \n\r\nNotes: If you find the orange flavor a bit too sharp, a pinch of ground\
+      \ cardamom can ground the citrus with an earthy, herbal base. Also, since you're\
+      \ often heading to Planet Fitness, mixing a scoop of vanilla protein powder\
+      \ into this (once cooled) creates a refreshing \"Orange Julius\" recovery drink."
+    restart: unless-stopped
+  merry_cocoa_cherry:
+    container_name: merry_cocoa_cherry
+    category: Fruit Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/fruit_tea:latest
+    notes: A decadent, dessert-like herbal tea reminiscent of a cherry cordial, featuring
+      rich dark chocolate notes, sweet cherries, and a tart hibiscus finish.
+    volumes:
+    - "additive:/Sweeteners: Amarena cherry syrup or honey. The syrup boosts the \"\
+      maraschino\" quality of the blend, while honey adds a floral softness to the\
+      \ cocoa base.\r\n\r\nFruit Infusions: Freeze-dried strawberries or vanilla bean.\
+      \ Strawberries add a tart, red-fruit complexity, while a split vanilla bean\
+      \ deepens the \"confectionery\" aroma of the cocoa and cherry.\r\n\r\nMilk &\
+      \ Creams: Heavy cream or frothed almond milk. Heavy cream turns this into a\
+      \ liquid \"Black Forest Cake,\" while the nuttiness of almond milk complements\
+      \ the cherry pits' natural almond-like flavor."
+    - "snack:/Sweet: Shortbread cookies or dark chocolate truffles. The buttery shortbread\
+      \ acts as a neutral base for the fruit/chocolate notes, while more chocolate\
+      \ makes the experience truly indulgent.\r\n\r\nSavory: Roasted pistachios or\
+      \ mild brie on a cracker. Pistachios and cherries are a classic pairing, and\
+      \ the creamy brie provides a silky contrast to the tart cherry finish.\r\n\r\
+      \nNotes: If the cherry flavor feels too \"medicinal,\" a drop of pure vanilla\
+      \ extract or a cinnamon stick can ground the fruitiness and make it taste more\
+      \ like a baked dessert."
+    restart: unless-stopped
+  pumpkin_spice:
+    container_name: pumpkin_spice
+    category: Rooibos Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/rooibos_tea:latest
+    notes: A cozy, autumnal rooibos blend with rich notes of real pumpkin, aromatic
+      cinnamon, and a warming medley of ginger and cloves.
+    volumes:
+    - "additive:/Sweeteners: Maple syrup or dark brown sugar. These options bring\
+      \ out the \"baked\" quality of the pumpkin notes and complement the earthy spices\
+      \ better than white sugar.\r\n\r\nFruit Infusions: Dried apple slices or orange\
+      \ peel. Apple reinforces the \"harvest\" profile, while orange zest adds a necessary\
+      \ bright lift to the heavy cinnamon and nutmeg.\r\n\r\nMilk & Creams: Oat milk\
+      \ or half-and-half. Oat milk has a natural grain-like sweetness that mimics\
+      \ a pie crust, while half-and-half creates the rich, \"latte\" texture the flavor\
+      \ is known for."
+    - "snack:/Sweet: Warm snickerdoodles or pecan pie. The cinnamon coating on the\
+      \ cookies doubles down on the tea's spice, while the nutty, syrupy pie matches\
+      \ the tea's seasonal richness.\r\n\r\nSavory: Toasted pumpkin seeds (pepitas)\
+      \ or sharp cheddar cheese. Salty seeds provide a textural contrast, and a sharp\
+      \ cheese helps cut through the \"warm\" spices to reset your palate.\r\n\r\n\
+      Notes: Since you've been working out at Planet Fitness and using protein shakes,\
+      \ a vanilla protein powder mixed into this tea (once cooled slightly) makes\
+      \ for a great \"seasonal\" recovery drink. Just make sure to whisk it well to\
+      \ avoid clumps!"
+    restart: unless-stopped
+  apple_cider:
+    container_name: apple_cider
+    category: Fruit Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/fruit_tea:latest
+    notes: A warm, nostalgic herbal tea featuring crisp apple and velvety caramel
+      notes, balanced by aromatic cinnamon and a rich, earthy finish.
+    volumes:
+    - "additive:/Sweeteners: Maple syrup or caramel sauce. Maple syrup enhances the\
+      \ woodsy, autumnal profile of the apple, while a drizzle of caramel creates\
+      \ a \"caramel apple\" flavor that is deeply nostalgic.\r\n\r\nFruit Infusions:\
+      \ Cinnamon sticks or fresh orange slices. Cinnamon is the essential \"cider\"\
+      \ spice, adding warmth. Orange slices provide a citric acidity that prevents\
+      \ the apple notes from becoming too cloying.\r\n\r\nMilk & Creams: Generally\
+      \ avoid dairy, as the high acidity in apple cider can cause curdling. If you\
+      \ want a \"creamy\" cider, use a splash of frothed oat milk; its toasted, cereal-like\
+      \ flavor mimics a pie crust."
+    - "snack:/Sweet: Cinnamon sugar donuts or apple fritters. The fried dough and\
+      \ heavy sugar coating are the traditional partners for cider, doubling down\
+      \ on the \"orchard\" experience.\r\n\r\nSavory: Sharp white cheddar or pork\
+      \ rinds. Apple and cheddar is a legendary pairing—the sharp saltiness of the\
+      \ cheese cuts right through the sweet juice. Pork rinds offer a salty, fatty\
+      \ crunch that balances the tartness.\r\n\r\nNotes: If the cider tastes a bit\
+      \ \"flat,\" a pinch of ground cloves or allspice added during the steep can\
+      \ add a \"mulled\" complexity that makes the drink feel much more robust."
+    restart: unless-stopped
+  citrus_detox:
+    container_name: citrus_detox
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/herbal_tea:latest
+    notes: A zesty and grounding blend featuring bright citrus, cleansing ginger,
+      and a crisp, minty-floral finish.
+    volumes:
+    - "additive:/Sweeteners: Agave nectar or stevia. Since detox blends can sometimes\
+      \ have a bitter edge from roots like dandelion or burdock, these neutral sweeteners\
+      \ provide balance without adding the \"heaviness\" of honey or processed sugars.\r\
+      \n\r\nFruit Infusions: Grapefruit slices or fresh cucumber. Grapefruit enhances\
+      \ the \"citrus\" punch and adds a sophisticated bitterness, while cucumber provides\
+      \ a cooling, hydrating element that lightens the herbal notes.\r\n\r\nMilk &\
+      \ Creams: Generally avoid. Citrus-heavy and detoxifying herbal teas are prone\
+      \ to curdling dairy, and the \"clean\" profile of the tea is usually dampened\
+      \ by the fat in milk. If necessary, a splash of unsweetened rice milk is the\
+      \ most neutral, non-reactive option."
+    - "snack:/Sweet: Fresh papaya or goji berries. Papaya contains enzymes that complement\
+      \ a \"detox\" theme, and its mild sweetness doesn't overwhelm the palate. Goji\
+      \ berries add a chewy, tart texture.\r\n\r\nSavory: Raw almonds or lightly salted\
+      \ rice cakes with avocado. The healthy fats in almonds and avocado help satisfy\
+      \ hunger without making you feel \"heavy,\" keeping with the light energy of\
+      \ the tea.\r\n\r\nNotes: Detox blends often contain \"diuretic\" ingredients;\
+      \ pairing this tea with water-rich snacks (like melon or celery) is a great\
+      \ way to stay hydrated while enjoying the sharp,"
+    restart: unless-stopped
+  pomegranatopia:
+    container_name: pomegranatopia
+    category: White Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=1
+    image: tea_station/white_tea:latest
+    notes: 'Pomegranatopia (Tiesta Tea): A sweet and floral white tea blend featuring
+      a light, antioxidant-rich base layered with the flavors of pomegranate, raspberry,
+      and strawberry. It is designed to be a smooth, low-caffeine brew that’s refreshing
+      both hot and iced.'
+    volumes:
+    - "additive:/Sweeteners: Pomegranate molasses or light agave Elderberry syrup.\
+      \ Pomegranate molasses \"overclocks\" the tartness and adds a thick, syrupy\
+      \ depth. Agave provides a neutral sweetness that lets the fruit flavors stay\
+      \ crisp.\r\n\r\nFruit & Herb Infusions: Fresh mint or dried orange peel. Mint\
+      \ provides a cooling contrast to the heavy red-fruit notes, while orange peel\
+      \ adds a citrus \"zing\" that brightens the darker pomegranate flavors.\r\n\r\
+      \nMilk & Creams: Skip the dairy. Like Fireberry, the acidity here will likely\
+      \ curdle cow's milk. For a \"smoothie\" style drink, whisk in a splash of coconut\
+      \ water or light coconut milk to keep it refreshing and tropical."
+    - "snack:/Sweet: Dark chocolate sea salt bar or pistachio macarons. The bitterness\
+      \ of dark chocolate is the ultimate partner for pomegranate, and the nutty,\
+      \ floral profile of pistachio matches the \"utopian\" fruit vibe.\r\n\r\nSavory:\
+      \ Goat cheese crostini or salted cashews. The creamy tang of goat cheese is\
+      \ a classic culinary pairing for pomegranate, while cashews offer a buttery\
+      \ crunch that tames the tea's acidity."
+    restart: unless-stopped
+  ginger_spice:
+    container_name: ginger_spice
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/black_tea:latest
+    notes: A warming, aromatic black tea with bold notes of spicy ginger root, sweet
+      cinnamon, and a rich, molasses-like finish.
+    volumes:
+    - "additive:/Sweeteners: Dark honey (like Buckwheat) or molasses. These provide\
+      \ a thick, earthy sweetness that stands up to the sharp \"zing\" of the ginger\
+      \ and spices.\r\n\r\nFruit Infusions: Dried apricot or orange slices. Apricot\
+      \ adds a chewy, tart contrast to the heat, while orange provides a bright citrus\
+      \ lift that cuts through the \"dusty\" notes of cinnamon and clove.\r\n\r\n\
+      Milk & Creams: Warm whole milk or oat milk. This tea is perfect for a \"Gingerbread\
+      \ Latte\" style. The fats in the milk bind to the spice oils, smoothing out\
+      \ the \"burn\" on the back of the throat."
+    - "snack:/Sweet: Snickerdoodles or dark chocolate with sea salt. The cinnamon-sugar\
+      \ coating on the cookies echoes the spice profile, while the salt in the chocolate\
+      \ makes the ginger taste sharper and more defined.\r\n\r\nSavory: Sharp cheddar\
+      \ cheese or spiced pecans. A strong cheese provides a savory, fatty counterweight\
+      \ to the tea's heat, and pecans add a buttery crunch that mimics a pie crust.\r\
+      \n\r\nNotes: Harrington Smythe's ginger blends tend to be quite \"zippy.\" If\
+      \ the spice is too intense for a relaxing evening, a cinnamon stick used as\
+      \ a stirrer can actually help ground the ginger with a warmer, woodier sweetness."
+    restart: unless-stopped
+  chinese_gunpowder:
+    container_name: chinese_gunpowder
+    category: Green Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=0
+    image: tea_station/green_tea:latest
+    notes: A bold, smoky tea with notes of toasted oak, honey, and a crisp, grassy
+      finish.
+    volumes:
+    - "additive:/Sweeteners: Honey (specifically wildflower or orange blossom) or\
+      \ brown sugar. These add a depth that matches the tea’s slightly smoky, bold\
+      \ character.\r\n\r\nFruit Infusions: Fresh mint leaves or dried apricots. Gunpowder\
+      \ is the traditional base for Maghrebi Mint Tea; the mint cuts through the \"\
+      smokiness,\" while apricot adds a chewy, tart contrast.\r\n\r\nMilk & Creams:\
+      \ Generally not recommended as the tea is quite astringent, but if desired,\
+      \ a heavy oat milk can stand up to the strong flavor profile without curdling."
+    - "snack:/Sweet: Baklava or pistachio-based pastries. The honey and nuts in these\
+      \ desserts harmonize with the toasted, nutty notes of the rolled leaves.\r\n\
+      \r\nSavory: Roasted almonds or grilled halloumi. The salt and char from these\
+      \ snacks pair excellently with the \"gunpowder\" smoke and vegetal finish.\r\
+      \n\r\nNotes: This tea has a high caffeine content and a \"tight\" flavor profile;\
+      \ if it feels too \"grassy,\" a squeeze of lemon (as a fruit infusion) can mellow\
+      \ the metallic edge."
+    restart: unless-stopped
+  sour_green_apple:
+    container_name: sour_green_apple
+    category: Green Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=0
+    image: tea_station/green_tea:latest
+    notes: A tart, mouth-watering tea with bright notes of Granny Smith apple, a zesty
+      citrus tang, and a crisp, candy-like sweetness.
+    volumes:
+    - "additive:/Sweeteners: Caramel syrup or brown sugar. The deep, buttery sweetness\
+      \ of caramel or molasses creates a \"candy apple\" or \"apple pie\" flavor profile\
+      \ that balances the sharp acidity.\r\n\r\nFruit Infusions: Cinnamon sticks or\
+      \ dried cranberries. Cinnamon provides a warm counterpoint to the tartness,\
+      \ while cranberries enhance the \"red fruit\" complexity without adding more\
+      \ sourness.\r\n\r\nMilk & Creams: Heavy coconut milk or oat milk. Use caution\
+      \ with dairy, as the high acidity in sour apple blends can cause curdling. Creamy\
+      \ plant milks provide a \"green apple smoothie\" texture."
+    - "snack:/Sweet: Caramel popcorn or oatmeal raisin cookies. The toasted oats and\
+      \ salt-sweet caramel harmonize with the bright fruit notes.\r\n\r\nSavory: Sharp\
+      \ white cheddar or salted walnuts. Apple and cheddar is a classic pairing; the\
+      \ fat and salt in the cheese cut right through the tea's sharpness.\r\n\r\n\
+      Notes: If the tea feels too tart, adding a pinch of salt to the brew can actually\
+      \ suppress the sourness and make the apple flavor \"pop\" more."
+    restart: unless-stopped
+  pineapple_blues:
+    container_name: pineapple_blues
+    category: Green Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=0
+    image: tea_station/green_tea:latest
+    notes: A smooth, tropical green tea featuring a sweet harmony of juicy pineapple,
+      tart blueberries, and a subtle mango finish.
+    volumes:
+    - "additive:/Sweeteners: Agave nectar or simple syrup. These neutral sweeteners\
+      \ dissolve easily and boost the tropical fruit profile without introducing conflicting\
+      \ flavors.\r\n\r\nFruit Infusions: Fresh blueberries or mint sprigs. Since the\
+      \ \"blues\" usually implies blueberry, adding fresh berries reinforces the flavor,\
+      \ while mint provides a refreshing, mojito-like finish.\r\n\r\nMilk & Creams:\
+      \ Full-fat coconut milk. This turns the tea into a \"Piña Colada\" inspired\
+      \ treat, adding a rich, velvety texture that rounds out the acidic pineapple."
+    - "snack:/Sweet: Dried mango or coconut macaroons. The chewy texture and concentrated\
+      \ sugar of tropical fruits complement the brightness of the tea.\r\n\r\nSavory:\
+      \ Macadamia nuts or teriyaki-glazed chicken skewers. The buttery fat of the\
+      \ nuts or the salty-sweet glaze of the chicken pairs naturally with pineapple\
+      \ and berry notes.\r\n\r\nNotes: If this blend contains butterfly pea flower\
+      \ (often used for \"blue\" coloring), avoid adding lemon as an infusion unless\
+      \ you want the tea to change color from blue to purple/pink."
+    restart: unless-stopped
+  chunky_watermelon:
+    container_name: chunky_watermelon
+    category: Fruit Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=360
+    - BREW_COUNT=0
+    image: tea_station/fruit_tea:latest
+    notes: A juicy, summer-inspired herbal tea with dominant notes of ripe watermelon
+      and crisp apple, balanced by a subtle, earthy sweetness from beetroot.
+    volumes:
+    - "additive:/Sweeteners: Agave nectar or honey. Agave has a clean, syrupy sweetness\
+      \ that mimics the natural sugars in a ripe watermelon, while a light honey adds\
+      \ a floral back-note.\r\n\r\nFruit Infusions: Fresh lime wedges or cucumber\
+      \ slices. Lime provides a \"watermelon margarita\" vibe, while cucumber leans\
+      \ into the refreshing, aqueous nature of the melon.\r\n\r\nMilk & Creams: Sweetened\
+      \ condensed milk. While unconventional, a small drizzle creates a \"watermelon\
+      \ cream\" flavor reminiscent of popular melon-flavored candies or Asian \"melona\"\
+      \ bars."
+    - "snack:/Sweet: Salted watermelon wedges or chile-lime (Tajín) mango. Adding\
+      \ a touch of salt or spice to fruit snacks helps emphasize the sweetness of\
+      \ the watermelon tea.\r\n\r\nSavory: Feta cheese or prosciutto. The saltiness\
+      \ of the cheese or cured meat is the classic culinary pairing for watermelon,\
+      \ providing a sharp contrast to the fruitiness.\r\n\r\nNotes: Watermelon flavors\
+      \ can sometimes become \"muted\" when hot. This tea is often best enjoyed as\
+      \ an iced tea to keep the \"chunky\" fruit notes crisp and vibrant."
+    restart: unless-stopped
+  chamomile_mint:
+    container_name: chamomile_mint
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/herbal_tea:latest
+    notes: A soothing, caffeine-free blend with calming floral notes of apple-like
+      chamomile and a cool, refreshing peppermint finish.
+    volumes:
+    - "additive:/Sweeteners: Raw honey or vanilla bean syrup. Honey is the soulmate\
+      \ of chamomile, enhancing its floral, hay-like notes, while vanilla softens\
+      \ the sharp edges of the mint.\r\n\r\nFruit Infusions: Dried apple slices or\
+      \ fresh raspberries. Chamomile naturally has a slight \"apple\" fragrance (its\
+      \ name actually means \"earth apple\" in Greek), and raspberries add a tart\
+      \ pop that balances the cooling menthol.\r\n\r\nMilk & Creams: Warm whole milk\
+      \ or almond milk. Adding milk to this blend creates a \"sleepytime latte\" effect.\
+      \ The fats in the milk carry the floral chamomile oils across the palate more\
+      \ smoothly."
+    - "snack:/Sweet: Lavender shortbread or honey tea cakes. The botanical notes of\
+      \ lavender or honeyed dough pair seamlessly with the calming nature of the herbs.\r\
+      \n\r\nSavory: Mild brie or ricotta on toast. These soft, creamy cheeses don't\
+      \ fight the tea; instead, they provide a rich base that allows the mint to feel\
+      \ extra refreshing.\r\n\r\nNotes: This is a caffeine-free \"digestif\" blend.\
+      \ If the mint is too dominant and masking the chamomile, add a lemon peel (just\
+      \ the yellow zest, no white pith) to brighten the infusion without adding sour\
+      \ juice."
+    restart: unless-stopped
+  orange_tango:
+    container_name: orange_tango
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/herbal_tea:latest
+    notes: A zesty, high-energy herbal tea with vibrant citrus notes, tart hibiscus,
+      and a subtle, honey-like sweetness.
+    volumes:
+    - "additive:/Sweeteners: Orange blossom honey or agave syrup. Orange blossom honey\
+      \ reinforces the floral citrus notes, while agave provides a clean sweetness\
+      \ that doesn't distract from the \"tango\" of flavors.\r\n\r\nFruit Infusions:\
+      \ Cinnamon sticks or fresh pomegranate seeds. Cinnamon adds a warm, spiced \"\
+      mulled\" dimension to the orange, while pomegranate adds a tart, jewel-like\
+      \ crunch and visual pop.\r\n\r\nMilk & Creams: Vanilla soy milk or half-and-half.\
+      \ This creates a \"creamsicle\" or \"orange julius\" effect, softening the citric\
+      \ acidity into a dessert-like profile."
+    - "snack:/Sweet: Dark chocolate-covered orange peels or cranberry bliss bars.\
+      \ The bitterness of dark chocolate is the perfect foil for bright citrus, and\
+      \ the tartness of cranberry complements the \"tango\" energy.\r\n\r\nSavory:\
+      \ Spiced pecans or prosciutto-wrapped melon. The salt and spice of the nuts\
+      \ or the savory-sweet combo of the ham and melon play well with the bold, fruity\
+      \ punch of the tea.\r\n\r\nNotes: Since \"Tango\" blends often lean into a \"\
+      bold\" or \"zippy\" citrus profile, if the orange flavor feels a bit too sharp,\
+      \ a pinch of cloves added during the steep can ground the flavor with an earthy,\
+      \ spicy base."
+    restart: unless-stopped
+  cocoa_mint_chill:
+    container_name: cocoa_mint_chill
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/herbal_tea:latest
+    notes: A rich, dessert-like herbal tea with deep notes of dark chocolate and roasted
+      chicory, finished with a cool, crisp peppermint breeze.
+    volumes:
+    - "additive:/Sweeteners: Peppermint syrup or marshmallows. Peppermint syrup doubles\
+      \ down on the \"chill,\" while marshmallows melting into the brew create a hot-cocoa-style\
+      \ richness.\r\n\r\nFruit Infusions: Dried cherries or strawberries. The tartness\
+      \ of red fruits cuts through the heavy cocoa notes and pairs classically with\
+      \ chocolate and mint.\r\n\r\nMilk & Creams: Half-and-half or frothed oat milk.\
+      \ The high fat content in these milks carries the cocoa oils better, giving\
+      \ it a velvety, \"melted chocolate\" mouthfeel."
+    - "snack:/Sweet: Dark chocolate brownies or vanilla wafers. Since the tea has\
+      \ a cocoa base, pairing it with more chocolate creates a decadent experience,\
+      \ while vanilla wafers provide a light, crunchy contrast.\r\n\r\nSavory: Pretzels\
+      \ or salted cashews. The salt on these snacks acts as a flavor enhancer for\
+      \ the chocolate, making the cocoa taste deeper and more complex.\r\n\r\nNotes:\
+      \ This tea is excellent served \"affogato style\"—poured over a scoop of vanilla\
+      \ bean ice cream. The temperature contrast between the hot tea and cold ice\
+      \ cream plays into the \"Chill\" theme perfectly."
+    restart: unless-stopped
+  golden_milk:
+    container_name: golden_milk
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/herbal_tea:latest
+    notes: A warm, comforting blend with earthy turmeric, spicy ginger, and sweet
+      cinnamon notes, rounded out by a creamy, honey-like finish.
+    volumes:
+    - "additive:/Sweeteners: Maple syrup or dates. The deep, caramel notes of maple\
+      \ syrup or the rich, earthy sweetness of blended dates perfectly complement\
+      \ the pungent turmeric and ginger.\r\n\r\nFruit Infusions: Dried golden berries\
+      \ or orange zest. Golden berries add a sharp, tangy contrast to the creamy base,\
+      \ while orange zest provides a floral citrus lift that cuts through the spice.\r\
+      \n\r\nMilk & Creams: Full-fat coconut milk or cashew milk. These are the traditional\
+      \ choices for Golden Milk; their high fat content is crucial for the suspension\
+      \ of turmeric and helps create a thick, \"latte\" consistency."
+    - "snack:/Sweet: Ginger snaps or pistachio biscotti. The crunch of a ginger snap\
+      \ doubles down on the tea's warmth, while the nutty, slightly savory pistachio\
+      \ provides a sophisticated balance to the turmeric.\r\n\r\nSavory: Curried cashews\
+      \ or sourdough toast with almond butter. The spices in the cashews harmonize\
+      \ with the brew, and the protein/fat in almond butter makes for a filling, grounded\
+      \ pairing.\r\n\r\nNotes: Since you frequently use creatine and protein shakes,\
+      \ you can actually blend a vanilla protein powder into this \"tea\" to turn\
+      \ it into a high-protein recovery drink. Just ensure you add a pinch of black\
+      \ pepper to the mix—it’s vital for the bioavailability of the turmeric!"
+    restart: unless-stopped
+  limeade_livin:
+    container_name: limeade_livin
+    category: Fruit Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/fruit_tea:latest
+    notes: A zesty and refreshing sweet lime herbal tea with tangy citrus, tropical
+      pineapple, and a smooth hibiscus finish.
+    volumes:
+    - "additive:/Sweeteners: Agave nectar or simple syrup. These provide a clean,\
+      \ neutral sweetness that doesn't compete with the sharp lime, keeping the profile\
+      \ crisp and refreshing.\r\n\r\nFruit Infusions: Fresh raspberries or sliced\
+      \ jalapeño. Raspberries add a \"berry-limeade\" twist and a pop of color, while\
+      \ a single slice of jalapeño (seeds removed) adds a \"Mexican Limeade\" heat\
+      \ that is surprisingly addictive.\r\n\r\nMilk & Creams: Full-fat coconut milk.\
+      \ Adding this turns the tea into a \"Brazilian Limeade\" style drink—creamy,\
+      \ tart, and slightly tropical."
+    - "snack:/Sweet: Key lime fudge or coconut macaroons. The fudge intensifies the\
+      \ citrus experience, while the coconut provides a sweet, chewy base that mellows\
+      \ the lime's acidity.\r\n\r\nSavory: Tortilla chips with mild salsa or chili-lime\
+      \ peanuts. The salt and corn flavor of the chips act as a perfect savory anchor\
+      \ for the bright, zesty lime notes.\r\n\r\nNotes: This blend is best served\
+      \ iced. If you find it too tart, add a pinch of salt directly into the tea;\
+      \ it suppresses the bitterness of the lime zest and makes the citrus flavor\
+      \ taste sweeter and more \"juice-like.\""
+    restart: unless-stopped
+  meyer_lemon_zest:
+    container_name: meyer_lemon_zest
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/herbal_tea:latest
+    notes: A bright, uplifting herbal tea with zesty citrus notes of sweet Meyer lemon,
+      a cooling touch of eucalyptus, and a warm, spicy ginger finish.
+    volumes:
+    - "additive:/Sweeteners: Acacia honey or lavender syrup. Meyer lemons are naturally\
+      \ sweeter and less acidic than standard lemons; acacia honey maintains that\
+      \ delicacy, while lavender adds a floral depth that bridges the gap between\
+      \ the citrus and the tea base.\r\n\r\nFruit Infusions: Fresh thyme sprigs or\
+      \ blueberries. Thyme brings out the herbal, woodsy undertones of the lemon zest,\
+      \ while blueberries provide a visual contrast and a \"lemon-berry\" sweetness\
+      \ as they steep.\r\n\r\nMilk & Creams: Generally avoid dairy due to the high\
+      \ citrus zest concentration, which can cause separation. If you want a creamy\
+      \ texture, unsweetened cashew milk is the best choice—it’s naturally buttery\
+      \ and resists curdling better than soy or cow's milk."
+    - "snack:/Sweet: Lemon poppyseed muffins or white chocolate chip cookies. The\
+      \ poppyseeds add a nice crunch that echoes the \"zest\" theme, while the creamy\
+      \ fat in white chocolate mellows the citrus punch.\r\n\r\nSavory: Smoked salmon\
+      \ on a rye cracker or whipped feta dip. The oiliness of the salmon and the saltiness\
+      \ of the feta are elevated by the bright, clean acidity of the Meyer lemon.\r\
+      \n\r\nNotes: Meyer Lemon Zest is prized for its aromatic oils. To get the most\
+      \ out of it, ensure you cover your cup while steeping to trap those volatile\
+      \ citrus oils; otherwise, the \"zest\" flavor will evaporate before you take\
+      \ your first sip."
+    restart: unless-stopped
+  fireside_spice:
+    container_name: fireside_spice
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/herbal_tea:latest
+    notes: A cozy, mulled-wine inspired herbal tea with festive notes of cinnamon,
+      smoky spices, tart hibiscus, and zesty orange peel.
+    volumes:
+    - "additive:/Sweeteners: Maple syrup or dark brown sugar. The deep, molasses-heavy\
+      \ sweetness of these options mirrors the \"toasted\" and warm spices like cinnamon\
+      \ and clove typically found in fireside blends.\r\n\r\nFruit Infusions: Dried\
+      \ orange wheels or apple slices. Orange provides a classic \"pomander\" aroma\
+      \ that brightens the heavy spices, while apple adds a soft, autumnal sweetness.\r\
+      \n\r\nMilk & Creams: Half-and-half or frothed oat milk. This tea is built for\
+      \ a \"latte\" style. The fats in the milk bind to the spice oils (especially\
+      \ cinnamon), making the drink feel smoother and less \"dusty\" on the palate."
+    - "snack:/Sweet: Gingerbread or dark chocolate with sea salt. The ginger in the\
+      \ bread complements the \"spice\" profile, while the salt in the chocolate makes\
+      \ the warm notes of the tea pop.\r\n\r\nSavory: Sharp cheddar cheese or smoked\
+      \ almonds. The \"smoky\" element of the almonds plays into the \"Fireside\"\
+      \ theme, and the fat in the cheese balances the strong tannins often present\
+      \ in spiced black tea bases.\r\n\r\nNotes: This blend is often quite robust.\
+      \ If the cloves or cinnamon become too overpowering after a long steep, a star\
+      \ anise pod added as an infusion can actually help \"sweeten\" the aroma without\
+      \ adding more sugar."
+    restart: unless-stopped
+  sexy_hot_x-mas:
+    container_name: sexy_hot_x-mas
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=195°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/black_tea:latest
+    notes: A bold, indulgent black tea with rich cocoa notes, warm cinnamon, and a
+      lingering spicy kick from bird’s eye chili.
+    volumes:
+    - "additive:/Sweeteners: Dark chocolate chips or marshmallows. This tea often\
+      \ has a cocoa or chili base; melting chocolate directly into the cup deepens\
+      \ the \"hot cocoa\" vibe, while marshmallows provide a creamy, melting sweetness.\r\
+      \n\r\nFruit Infusions: Dried cherries or orange zest. The tartness of cherries\
+      \ cuts through the heavy spice and cocoa, while orange zest adds a bright, festive\
+      \ aromatic that lightens the \"hot\" chili notes.\r\n\r\nMilk & Creams: Whole\
+      \ milk or frothed coconut cream. A higher fat content is essential here to carry\
+      \ the heat of the spices and the richness of the cocoa, creating a velvety mouthfeel\
+      \ that tames the \"sexy\" chili kick."
+    - "snack:/Sweet: Churros with cinnamon sugar or peppermint bark. The fried dough\
+      \ of the churro is a classic partner for spicy chocolate, and the peppermint\
+      \ provides a \"cool\" contrast to the \"hot\" theme of the tea.\r\n\r\nSavory:\
+      \ Spicy glazed pecans or bacon-wrapped dates. The salt and fat from the bacon\
+      \ or nuts highlight the smoky undertones of the tea while providing a heavy\
+      \ enough base to stand up to the bold flavors.\r\n\r\nNotes: If the \"Hot\"\
+      \ in the name refers to chili heat, adding a pinch of sea salt to your brew\
+      \ can actually help neutralize some of the burn while making the chocolate notes\
+      \ taste much more intense."
+    restart: unless-stopped
+  chocolate_mint:
+    container_name: chocolate_mint
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=1
+    image: tea_station/black_tea:latest
+    notes: A smooth, indulgent black tea with a refreshing peppermint aroma and a
+      sweet, creamy chocolate-vanilla finish.
+    volumes:
+    - "additive:/Sweeteners: Peppermint syrup or brown sugar. Peppermint syrup will\
+      \ boost the \"cool\" factor of the mint, while brown sugar adds a deep, molasses-like\
+      \ undertone that enriches the chocolate notes.\r\n\r\nFruit Infusions: Dried\
+      \ strawberries or fresh raspberries. The tartness of red berries provides a\
+      \ bright contrast to the dark, earthy cocoa and cooling menthol.\r\n\r\nMilk\
+      \ & Creams: Half-and-half or frothed oat milk. This blend is designed for richness;\
+      \ the high fat content in half-and-half carries the chocolate oils across your\
+      \ tongue, while oat milk adds a \"cookie-like\" toasted grain finish."
+    - "snack:/Sweet: Vanilla wafers or mint chocolate chip cookies. Vanilla wafers\
+      \ provide a light, crunchy contrast that won't overwhelm the tea, while the\
+      \ cookies double down on the flavor profile for a decadent pairing.\r\n\r\n\
+      Savory: Salted pretzels or roasted almonds. Salt is essential here; it suppresses\
+      \ the bitterness of the cocoa and makes the chocolate flavors \"pop\" more intensely.\r\
+      \n\r\nNotes: Since you've been focused on your fitness routine at Planet Fitness,\
+      \ you can easily turn this into a \"post-workout\" treat by adding a scoop of\
+      \ chocolate or vanilla whey protein. The mint helps mask any \"chalky\" protein\
+      \ aftertaste while giving you a muscle-recovery boost."
+    restart: unless-stopped
+  chamomile:
+    container_name: chamomile
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=300
+    - BREW_COUNT=0
+    image: tea_station/herbal_tea:latest
+    notes: A gentle, honey-sweet herbal tea made from whole dried blossoms, known
+      for its calming floral aroma and light, apple-like finish.
+    volumes:
+    - "additive:/Sweeteners: Manuka honey or pure maple syrup. Manuka honey provides\
+      \ a rich, medicinal sweetness that highlights the floral notes, while maple\
+      \ syrup adds a woody, caramel-like undertone that grounds the \"apple-like\"\
+      \ aroma of the chamomile.\r\n\r\nFruit Infusions: Dried apricots or fresh apple\
+      \ slices. Chamomile literally translates to \"earth apple\" in Greek; adding\
+      \ real apple slices doubles down on that natural sweetness. Apricots add a chewy,\
+      \ tart complexity that brightens the brew.\r\n\r\nMilk & Creams: Warm almond\
+      \ milk or oat milk. The nuttiness of almond milk pairs perfectly with the hay-like\
+      \ flavors of the tea, creating a soothing \"nightcap\" texture without the heaviness\
+      \ of dairy."
+    - "snack:/Sweet: Honey-vanilla yogurt or butter cookies. The light, creamy tang\
+      \ of the yogurt complements the floral profile, while the high butter content\
+      \ in the cookies helps smooth out any herbal bitterness.\r\n\r\nSavory: Mild\
+      \ brie cheese or walnuts. The buttery, soft rind of brie melts into the palate\
+      \ alongside the tea, and walnuts provide an earthy crunch that matches the \"\
+      grounded\" energy of this herbal blend.\r\n\r\nNotes: Try adding a cinnamon\
+      \ stick. It provides a comforting, nostalgic aroma that helps signal to your\
+      \ brain that it's time to shift from \"logic mode\" to \"sleep mode.\""
+    restart: unless-stopped
+  peppermint:
+    container_name: peppermint
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=180
+    - BREW_COUNT=0
+    image: tea_station/herbal_tea:latest
+    notes: A crisp, refreshing herbal tea known for its bold menthol aroma and cooling
+      finish. It’s naturally caffeine-free and widely used as a soothing "nightcap"
+      or to help ease digestion.
+    volumes:
+    - "additive:/Sweeteners: White sugar or peppermint syrup. White sugar provides\
+      \ a sharp, clean sweetness that doesn't muddy the menthol, while peppermint\
+      \ syrup \"overclocks\" the chill for a truly intense experience.\r\n\r\nFruit\
+      \ Infusions: Dark chocolate shavings or fresh lime. Chocolate creates a \"thin\
+      \ mint\" effect as it melts, while a squeeze of lime adds a zesty, mojito-like\
+      \ brightness that makes the mint feel even more refreshing.\r\n\r\nMilk & Creams:\
+      \ Splash of heavy cream or frothed coconut milk. This creates a \"creamy mint\"\
+      \ or \"grasshopper\" profile, coating the tongue and helping to carry the cooling\
+      \ menthol flavor longer."
+    - "snack:/Sweet: Dark chocolate brownies or vanilla bean fudge. The richness of\
+      \ the chocolate or the creamy density of the fudge acts as a heavy anchor for\
+      \ the light, airy peppermint notes.\r\n\r\nSavory: Salted pretzels or buttery\
+      \ crackers. The salt and fat provide a necessary contrast to the sharp menthol,\
+      \ making the tea feel more like a balanced treat rather than just a palate cleanser.\r\
+      \n\r\nNotes: If you’re drinking this to stay sharp while finishing up a discussion\
+      \ post for your Gender Studies course, the natural menthol can help with focus.\
+      \ If the \"cooling\" sensation is too strong on your throat, a pinch of salt\
+      \ in the cup can actually help \"warm\" the flavor profile slightly without\
+      \ losing the minty aroma."
+    restart: unless-stopped
+  christmas_morning:
+    container_name: christmas_morning
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/black_tea:latest
+    notes: A unique and complex "kitchen sink" blend that mixes brisk black teas (Assam
+      and Keemun) with smooth Oolong and a touch of fragrant Jasmine green tea. It’s
+      designed to be a festive, high-caffeine wake-up call with a slightly floral,
+      malty finish.
+    volumes:
+    - "additive:/Sweeteners: Maple syrup or cinnamon sugar. Maple syrup highlights\
+      \ the \"morning breakfast\" vibe of this blend, while cinnamon sugar adds a\
+      \ sparkly, festive sweetness that mirrors the holiday spirit.\r\n\r\nFruit Infusions:\
+      \ Dried cranberries or fresh orange zest. Cranberries add a tart, jewel-toned\
+      \ brightness to the cup, and orange zest provides a high-note citrus aromatic\
+      \ that cuts through the robust tea base.\r\n\r\nMilk & Creams: Half-and-half\
+      \ or vanilla oat milk. This blend often has a malty, black tea base; heavy dairy\
+      \ makes it feel like a rich holiday treat, while vanilla oat milk adds a \"\
+      pancake and syrup\" undertone."
+    - "snack:/Sweet: Shortbread cookies or panettone. The buttery, crumbly nature\
+      \ of shortbread is a classic pairing for morning black teas, while panettone\
+      \ provides a light, fruity sweetness that fits the \"Christmas Morning\" theme.\r\
+      \n\r\nSavory: Bacon-wrapped dates or aged cheddar. The salt and smoke from the\
+      \ bacon play beautifully against the malty tea, and a sharp cheddar provides\
+      \ a savory depth that balances the festive spices."
+    restart: unless-stopped
+  wander_blossom:
+    container_name: wander_blossom
+    category: White Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=120
+    - BREW_COUNT=0
+    image: tea_station/white_tea:latest
+    notes: A delicate, seasonal white tea known for its light, floral profile and
+      naturally sweet, crisp finish. As an "introduction to white tea," it's designed
+      to be approachable and refreshing.
+    volumes:
+    - "additive:/Sweeteners: Rock sugar (Bing Tang) or lychee syrup. Rock sugar provides\
+      \ a \"clean\" sweetness that won't overshadow the delicate white tea, while\
+      \ lychee syrup amplifies the tropical, floral profile of the blend.\r\n\r\n\
+      Fruit Infusions: Fresh peach slices or frozen lychees. Adding fresh fruit mirrors\
+      \ the tea’s tasting notes and acts as a flavorful garnish. Frozen lychees can\
+      \ serve as \"ice cubes\" that chill the tea without watering it down.\r\n\r\n\
+      Milk & Creams: A splash of unsweetened almond milk or light coconut milk. White\
+      \ tea is very delicate, so avoid heavy creams. A light nut or coconut milk complements\
+      \ the vanilla and fruit without masking the subtle tea leaves."
+    - "snack:/Sweet: Peach gummies or white chocolate-dipped strawberries. The white\
+      \ chocolate echoes the \"velvety\" description of the Gilded Teafling’s higher-end\
+      \ blends, while peach gummies lean into the playful, fruity nature of the Blossom.\r\
+      \n\r\nSavory: Lightly salted edamame or rice crackers. These provide a clean,\
+      \ umami-rich crunch that doesn't compete with the floral notes, making them\
+      \ a perfect light \"gaming snack\" that won't get your keyboard messy.\r\n\r\
+      \nNotes: Since this is a white tea (made from young camellia sinensis buds),\
+      \ it is naturally lower in caffeine but high in antioxidants. It’s marketed\
+      \ as a \"rejuvenating\" brew, making it an excellent choice for a mid-afternoon\
+      \ reset between your CS labs or while catching up on Gender Studies readings."
+    restart: unless-stopped
+  chimera_call_circe:
+    container_name: chimera_call_circe
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=200°F
+    - TIME=300
+    - BREW_COUNT=1
+    image: tea_station/herbal_tea:latest
+    notes: A luxurious and "fierce" herbal blend featuring a honeybush base, balanced
+      with sweet rose, fragrant jasmine, and decadent white chocolate morsels, all
+      finished with a subtle spicy bite of pink peppercorn.
+    volumes:
+    - "additive:/Sweeteners: Lavender-infused honey or pomegranate molasses. Lavender\
+      \ honey enhances the mystical, floral \"Circe\" vibe, while pomegranate molasses\
+      \ adds a tart, dark-red depth that feels appropriately \"sorcerous.\"\r\n\r\n\
+      Fruit & Herb Infusions: Dried hibiscus flowers or blackberries. Hibiscus provides\
+      \ a deep crimson color and a sharp tang, while blackberries add a jammy, dark-fruit\
+      \ sweetness that mirrors the complexity of a \"Chimera\" blend.\r\n\r\nMilk\
+      \ & Creams: Frothed coconut cream. A thick, velvety layer of coconut cream on\
+      \ top creates a \"transformation\" effect as it swirls into the dark tea, adding\
+      \ a rich, tropical body that balances the tart berries."
+    - "snack:/Sweet: Dark chocolate with sea salt or honey-glazed figs. The salt in\
+      \ the chocolate makes the fruity and floral notes of the tea \"pop,\" while\
+      \ the figs provide a chewy, Mediterranean sweetness that fits the Circe theme.\r\
+      \n\r\nSavory: Goat cheese with a drizzle of honey or kalamata olives. The \"\
+      tang\" of goat cheese is a classic partner for dark fruits, and the saltiness\
+      \ of the olives provides a sharp contrast to the tea's mystical aromatics.\r\
+      \n\r\nNotes: This is a transformation-themed blend. If the \"Call\" feels a\
+      \ bit too wild or acidic, a single star anise pod added to the steep can help\
+      \ ground the flavors with a sweet, licorice-like warmth that feels both ancient\
+      \ and comforting."
+    restart: unless-stopped
+  enchanted_oasis:
+    container_name: enchanted_oasis
+    category: White Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=200°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/white_tea:latest
+    notes: A bright, tropical Piña Colada white tea blend that captures the essence
+      of a tranquil jungle hideaway with notes of sun-kissed pineapple and creamy
+      coconut.
+    volumes:
+    - "additive:/Sweeteners: Orange blossom honey or agave nectar Fig Leaf syrup.\
+      \ Orange blossom honey enhances the floral, \"mirage-like\" aromatics of the\
+      \ oasis, while agave provides a clean, thin sweetness that keeps the profile\
+      \ refreshing and light.\r\n\r\nFruit & Herb Infusions: Fresh mint leaves or\
+      \ dried hibiscus. Mint is the classic \"oasis\" staple, providing a cooling\
+      \ sensation that cuts through the desert heat. Hibiscus adds a tart, cranberry-like\
+      \ \"zing\" and a deep ruby color that looks magical in the cup.\r\n\r\nMilk\
+      \ & Creams: Splash of light coconut milk. Because \"Enchanted Oasis\" blends\
+      \ are often lighter (green or herbal based), heavy dairy can be overwhelming.\
+      \ Coconut milk adds a tropical, velvety finish that mimics the lushness of a\
+      \ hidden spring."
+    - "snack:/Sweet: Baklava or date cookies (Ma'amoul). The honey and nuts in baklava\
+      \ provide a rich, crunchy contrast to the tea’s floral notes, while the dense,\
+      \ sweet filling of dates is a traditional desert pairing that grounds the \"\
+      Enchanted\" theme.\r\n\r\nSavory: Salted pistachios or pita with hummus. Pistachios\
+      \ offer an earthy, buttery crunch that pairs beautifully with floral teas. The\
+      \ savory, garlic-led notes of hummus provide a robust anchor to the delicate\
+      \ tea aromatics.\r\n\r\nNotes: If the floral notes feel a bit too \"perfumey,\"\
+      \ a squeeze of fresh lime can provide the necessary acidity to balance the brew.\
+      \ Since you're likely wrapping up your Gender Studies quiz or prep for your\
+      \ CS 330 lab around this time of night, the refreshing nature of this tea is\
+      \ perfect for keeping your mind clear without a heavy caffeine crash."
+    restart: unless-stopped
+  lemon_black_tea:
+    container_name: lemon_black_tea
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=200°F
+    - TIME=240
+    - BREW_COUNT=0
+    image: tea_station/black_tea:latest
+    notes: A bright and refreshing blend that combines the deep, malty notes of black
+      tea with the zesty, uplifting flavor of natural lemon. It's a versatile choice
+      that works equally well as a morning "pick-me-up" or a crisp iced tea in the
+      afternoon.
+    volumes:
+    - "additive:/Sweeteners: Wildflower honey or white sugar or Sour Cherry syrup.\
+      \ Honey adds a floral, soothing layer that turns the drink into a \"liquid lozenge\"\
+      \ (great for long study sessions), while white sugar provides a \"clean\" sweetness\
+      \ that lets the lemon tartness take center stage.\r\n\r\nFruit & Herb Infusions:\
+      \ Fresh ginger slices or mint leaves. Ginger adds a spicy \"zing\" that complements\
+      \ the lemon's acidity, while mint provides a cooling finish that makes this\
+      \ tea incredibly refreshing, whether hot or iced.\r\n\r\nMilk & Creams: Generally\
+      \ avoided. The citric acid in the lemon can cause dairy to curdle. If you absolutely\
+      \ want a creamy texture, try a splash of coconut milk, which is more stable\
+      \ and creates a \"lemon-cream\" profile."
+    - "snack:/Sweet: Blueberry muffins or lemon poppyseed cake. The berries provide\
+      \ a sweet, dark contrast to the bright tea, while the poppyseed cake doubles\
+      \ down on the citrus theme for a very cohesive pairing.\r\n\r\nSavory: Roasted\
+      \ almonds with sea salt or a turkey club sandwich. The acidity of the lemon\
+      \ tea acts as a palate cleanser for salty, savory snacks, cutting through the\
+      \ richness of the nuts or the fats in the sandwich"
+    restart: unless-stopped
+  cozy_chai:
+    container_name: cozy_chai
+    category: Chai Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=1
+    image: tea_station/chai_tea:latest
+    notes: A warming, caffeine-free spiced rooibos blend designed for relaxation.
+      It features a rich profile of traditional chai spices like ginger, cinnamon,
+      cloves, and cardamom, balanced with the earthy sweetness of rooibos and a subtle
+      kick from black and pink peppercorns.
+    volumes:
+    - "additive:/Sweeteners: Brown sugar or maple syrup. Brown sugar gives a deep,\
+      \ molasses-like sweetness that feels like a hug, while maple syrup adds a woodsy,\
+      \ autumnal layer that perfectly suits the \"Cozy\" vibe.\r\n\r\nFruit & Herb\
+      \ Infusions: Dried apple slices or a vanilla bean. Apple slices give it a \"\
+      spiced cider\" undertone, while a vanilla bean (or a drop of extract) rounds\
+      \ out the spices with a smooth, dessert-like finish.\r\n\r\nMilk & Creams: Warm\
+      \ oat milk or frothed half-and-half. Oat milk has a natural graininess that\
+      \ tastes like a warm cookie when mixed with chai spices. If you want maximum\
+      \ coziness, go for half-and-half to create a rich, velvety texture."
+    - "snack:/Sweet: Snickerdoodles or warm banana bread. The cinnamon coating on\
+      \ the cookies is a natural match, and the density of banana bread provides a\
+      \ satisfying, carb-heavy partner for the tea.\r\n\r\nSavory: Sharp cheddar cheese\
+      \ or buttery toast with sea salt. A strong cheese provides a savory contrast\
+      \ to the sweet spices, while simple buttered toast is the ultimate \"low-effort\"\
+      \ cozy companion."
+    restart: unless-stopped
+  coconut_breeze:
+    container_name: coconut_breeze
+    category: Oolong Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=195°F
+    - TIME=180
+    - BREW_COUNT=1
+    image: tea_station/oolong_tea:latest
+    notes: A tropical and refreshing Soft Coconut Oolong blend. Designed to be a smooth,
+      metabolism-boosting brew that pairs the creamy essence of coconut with bright
+      citrus notes.
+    volumes:
+    - "additive:/Sweeteners: Agave nectar or coconut sugar or Fig Leaf syrup. Agave\
+      \ is thin and clean, while coconut sugar adds a toasted, caramel-like depth\
+      \ that reinforces the \"Breeze\" theme.\r\n\r\nFruit & Herb Infusions: Dried\
+      \ pineapple or fresh mint. Pineapple turns the cup into a \"tea-a-colada,\"\
+      \ while mint provides a sharp, cooling contrast to the creamy coconut, making\
+      \ it feel more like a refreshing seaside wind.\r\n\r\nMilk & Creams: Full-fat\
+      \ coconut milk or splash of soy milk. Adding coconut milk is a \"flavor stacking\"\
+      \ move that makes the tea incredibly lush. Soy milk is a great alternative as\
+      \ its natural nuttiness complements the coconut profile without being too heavy."
+    - "snack:/Sweet: Coconut macaroons or mango sorbet. These tropical pairings lean\
+      \ into the vacation vibes of the tea, providing a sweet, chewy, or icy contrast\
+      \ to the warm brew.\r\n\r\nSavory: Macadamia nuts or shrimp crackers. The rich,\
+      \ buttery fats in macadamia nuts are a natural match for coconut, and the saltiness\
+      \ of the crackers provides a savory \"snap\" that balances the tea's sweetness."
+    restart: unless-stopped
+  blue_lady_black_tea:
+    container_name: blue_lady_black_tea
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=208°F
+    - TIME=300
+    - BREW_COUNT=1
+    image: tea_station/black_tea:latest
+    notes: A vibrant, tropical black tea featuring notes of passion fruit, citrus,
+      and floral blue cornflowers with a crisp, malty finish.
+    volumes:
+    - "additive:/Sweeteners: Lavender Sumac Syrup(STIRRED) or Wildflower honey(INFUSED).\
+      \ The sumac’s tartness highlights the citrus notes, while lavender echoes the\
+      \ tea’s floral aroma.\r\n\r\nFruit & Herb Infusions: Lemon(SLICED WEDGES) or\
+      \ Orange peel(DRIED). These amplify the bergamot-like citrus profile and add\
+      \ a zesty brightness to the cup.\r\n\r\nMilk & Creams: Whole milk(WARM). A light\
+      \ splash of warm milk rounds out the floral edges, turning it into a \"Blue\
+      \ Lady Latte\" profile.\r\n\r\nFloral Lift: Cornflower petals(DRIED) or Lavender\
+      \ buds(DRIED). These emphasize the visual and aromatic \"blue\" floral identity\
+      \ of the blend."
+    - "snack:/Sweet: Lemon bars, Blueberry muffins, Shortbread, or Vanilla macarons.\r\
+      \n\r\nSavory: Sliced turkey, Swiss cheese, Light crackers, or Cucumber slices."
+    restart: unless-stopped
+  pomegranate_mojito_green_tea:
+    container_name: pomegranate_mojito_green_tea
+    category: Green Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=180
+    - BREW_COUNT=4
+    image: tea_station/green_tea:latest
+    notes: A refreshing and aromatic blend of mellow green tea, cooling peppermint,
+      and zesty lime with a subtle, tart splash of pomegranate.
+    volumes:
+    - "additive:/Sweeteners: Sour Cherry Syrup(STIRRED) or Agave(LIGHT). The tart\
+      \ cherry syrup intensifies the pomegranate's \"red\" fruit notes, while agave\
+      \ provides a clean sweetness that doesn't mask the lime.\r\n\r\nFruit & Herb\
+      \ Infusions: Lime(FRESH WEDGES) or Mint(MUDDLED). Muddled mint is essential\
+      \ to bring out the \"Mojito\" identity, while the lime wedges provide the necessary\
+      \ citric acid to lift the green tea base.\r\n\r\nMilk & Creams: Coconut milk(CHILLED).\
+      \ This is one of the few green teas that excels with a tropical dairy alternative;\
+      \ it creates a \"creamy mojito\" texture that is incredibly refreshing.\r\n\r\
+      \nTexture: Sparkling water(CHILLED SPLASH) or Pomegranate seeds(FRESH). A splash\
+      \ of carbonation after brewing transforms this into a non-alcoholic tea mocktail."
+    - "snack:/Sweet: Fruit tart, Lemon wafers, Mango sorbet, or Sugar cookies.\r\n\
+      \r\nSavory: Salted pistachios, Sliced cucumber, Tortilla chips, or Mild salsa."
+    restart: unless-stopped
+  twilight_muse:
+    container_name: twilight_muse
+    category: Herbal Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=175°F
+    - TIME=180
+    - BREW_COUNT=1
+    image: tea_station/herbal_tea:latest
+    notes: A dreamy, caffeine-free herbal blend of floral lavender and smooth vanilla
+      with a gentle, honey-like sweetness.
+    volumes:
+    - "additive:/Sweeteners: Lavender Sumac Syrup(STIRRED) or Raw honey(STIRRED).\
+      \ The floral sumac deepens the \"twilight\" aromatics, while honey adds a smooth,\
+      \ heavy sweetness to the herbal base.\r\n\r\nFruit & Herb Infusions: Apple(DRIED\
+      \ SLICES) or Rose petals(DRIED). Dried apple brings out the autumnal, fruity\
+      \ undertones, while rose petals enhance the delicate, musive floral scent.\r\
+      \n\r\nMilk & Creams: Oat milk(WARM). The grain-like sweetness of oat milk complements\
+      \ the herbal profile without the \"heaviness\" of dairy.\r\n\r\nNighttime Lift:\
+      \ Valerian root(DRIED) or Chamomile buds(DRIED). These reinforce the \"Muse\"\
+      \ identity as a blend designed for relaxation and winding down."
+    - "snack:/Sweet: Dark chocolate, Dried figs, Oat crackers, or Graham crackers.\r\
+      \n\r\nSavory: Mild brie, Walnuts, Sliced pears, or Almonds."
+    restart: unless-stopped
+  winters_keep:
+    container_name: winters_keep
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=1
+    image: tea_station/black_tea:latest
+    notes: A cozy and warming blend of malty black tea, sweet maple, and rich walnut
+      with a smooth, lingering finish.
+    volumes:
+    - "additive:/Sweeteners: Elderberry Syrup(STIRRED) or Maple syrup(PURE). The elderberry\
+      \ provides a dark, \"cold-weather\" fruitiness that bolsters the tea’s spice,\
+      \ while maple syrup adds a woody, autumnal sweetness.\r\n\r\nFruit & Herb Infusions:\
+      \ Cinnamon(WHOLE STICK) or Orange peel(DRIED). These amplify the warming, \"\
+      mulling spice\" profile that defines the blend's \"keep\" identity.\r\n\r\n\
+      Milk & Creams: Whole milk(WARM). Heating the dairy releases the oils in the\
+      \ spices, creating a comforting, latte-like texture that is perfect for a snowy\
+      \ evening.\r\n\r\nWarming Lift: Fresh ginger(SLICED) or Cloves(WHOLE). These\
+      \ add a sharp, spicy heat that makes the tea feel physically \"hotter,\" ideal\
+      \ for recovery."
+    - "snack:/Sweet: Gingerbread, Molasses cookies, Apple pie, or Pumpkin bread.\r\
+      \n\r\nSavory: Sharp white cheddar, Smoked jerky, Toasted walnuts, or Savory\
+      \ sausage."
+    restart: unless-stopped
+  artificer_noir:
+    container_name: artificer_noir
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=200°F
+    - TIME=180
+    - BREW_COUNT=1
+    image: tea_station/black_tea:latest
+    notes: A bold, oil-slick dark black tea with heavy notes of charred oak, roasted
+      cacao, and a lingering, smoky-sweet tobacco finish.
+    volumes:
+    - "additive:/Sweeteners: Elderberry Syrup or Maple syrup(PURE). The elderberry\
+      \ provides a dark, \"ink-like\" fruitiness that complements the tea's charred,\
+      \ smoky undertones.\r\n\r\nFruit & Herb Infusions: Orange zest(FRESH) or Star\
+      \ anise(POD). The citrus provides a \"spark\" of brightness against the heavy\
+      \ base, while star anise adds a licorice-like mechanical complexity.\r\n\r\n\
+      Milk & Creams: Heavy cream(FROTHED). This creates a thick, opaque \"fog\" over\
+      \ the dark brew, smoothing the heavy tannins into a texture like liquid silk.\r\
+      \n\r\nIndustrial Edge: Black sea salt(PINCH) or Vanilla bean(DRIED). A tiny\
+      \ pinch of salt enhances the savory, roasted notes of the tea, making it feel\
+      \ grounded and robust."
+    - "snack:/Sweet: Dark chocolate, Espresso beans, or Molasses cookies. These match\
+      \ the \"noir\" intensity without being overly sugary.\r\n\r\nSavory: Smoked\
+      \ brisket jerky, Aged gouda, or Salted almonds. The smoke in the jerky and the\
+      \ salt in the almonds play off the tea’s \"toasted\" profile perfectly."
+    restart: unless-stopped
+  spindle_snare:
+    container_name: spindle_snare
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=200°F
+    - TIME=180
+    - BREW_COUNT=1
+    image: tea_station/black_tea:latest
+    notes: A warm, bakery-fresh black tea with a malty Assam backbone, sun-ripened
+      peach sweetness, and a complex "thorny" spice profile of ginger, cardamom, and
+      cinnamon.
+    volumes:
+    - "additive:/Sweeteners: Fig Leaf Syrup or Brown sugar(DARK). The fig leaf syrup\
+      \ is the MVP here—its naturally nutty, \"green\" sweetness mimics the flavor\
+      \ of a buttery, baked cobbler crust.\r\n\r\nFruit & Herb Infusions: Peach slices(SLICED)\
+      \ or Cinnamon(WHOLE STICK). These double down on the primary flavor notes, adding\
+      \ fresh juice and intensifying the warming \"Keep\" vibes.\r\n\r\nMilk & Creams:\
+      \ Whole milk(WARM) or Heavy cream(FROTHED). Since this has a malty Assam base,\
+      \ it’s built for dairy; frothed cream turns the tea into \"cobbler à la mode.\""
+    - "snack:/Sweet: Peach cobbler, Graham crackers, Vanilla ice cream, or Vanilla\
+      \ wafers.\r\n\r\nSavory: Roasted pecans, Salted almonds, Sharp white cheddar,\
+      \ or Sliced ham."
+    restart: unless-stopped
+  knights_errant:
+    container_name: knights_errant
+    category: Rooibos Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=300
+    - BREW_COUNT=1
+    image: tea_station/rooibos_tea:latest
+    notes: A tart, zesty gooseberry-forward herbal infusion with a soft, honeyed elderflower
+      heart and a crisp, clean floral finish.
+    volumes:
+    - "additive:/Sweeteners: Lavender Sumac Syrup or Agave(LIGHT). The floral sumac\
+      \ doubles down on the elderflower’s \"wild\" profile, while agave provides a\
+      \ clean, neutral sweetness that lets the gooseberry shine.\r\n\r\nFruit & Herb\
+      \ Infusions: Lemon(FRESH WEDGES) or Frozen gooseberries. Adding fresh lemon\
+      \ highlights the blend's tartness, while frozen berries act as \"ice cubes\"\
+      \ that won't water down the flavor.\r\n\r\nMilk & Creams: Coconut milk(CHILLED).\
+      \ This creates a \"creamy wildberry\" texture that pairs perfectly with the\
+      \ floral elderflower notes.\r\n\r\nForest Lift: Mint(FRESH SPRIG) or Rose buds(DRIED).\
+      \ Mint provides a cooling \"forest floor\" finish, while rose buds reinforce\
+      \ the tea's delicate floral identity."
+    - "snack:/Sweet: Vanilla Wafers, Fresh raspberries, Lemon curd tarts, or Sugar\
+      \ cookies.\r\n\r\nSavory: Roasted & Salted Almonds, Sliced cucumber, Goat cheese,\
+      \ or Light crackers."
+    restart: unless-stopped
+  eternal_devotion:
+    container_name: eternal_devotion
+    category: Black Tea
+    environment:
+    - 'RATIO=1.5 tsp : 8oz'
+    - TEMP=212°F
+    - TIME=180
+    - BREW_COUNT=1
+    image: tea_station/black_tea:latest
+    notes: A rich, velvety black tea with deep cacao bitterness, a bright and tart
+      pomegranate "spark," and a shimmering, smooth finish.
+    volumes:
+    - "additive:/Sweeteners: Sour Cherry Syrup or Elderberry Syrup. The cherry syrup\
+      \ amplifies the tartness of the pomegranate, while elderberry adds a dark, \"\
+      Underworld\" fruit depth that pairs perfectly with the chocolate.\r\n\r\nFruit\
+      \ & Herb Infusions: Pomegranate seeds(FRESH) or Cacao nibs(EXTRA). Fresh pomegranate\
+      \ seeds add a juicy \"pop\" that mimics the Persephone theme, while extra cacao\
+      \ nibs deepen the rich, dark chocolate heart.\r\n\r\nMilk & Creams: Heavy cream(FROTHED).\
+      \ Because this has a malty Assam base, frothed cream is essential to turn the\
+      \ brew into a decadent, liquid dark chocolate truffle.\r\n\r\nThe Godly Finish:\
+      \ Luster dust(EXTRA) or Rose petals(DRIED). A pinch more luster dust ensures\
+      \ every sip shimmers, while dried rose petals add a romantic, floral \"springtime\"\
+      \ aroma to the dark brew."
+    - "snack:/Sweet: Dark Chocolate, Chocolate-covered pomegranate seeds, Fudge brownies,\
+      \ or Vanilla wafers.\r\n\r\nSavory:  Roasted & Salted Almonds, Sharp white cheddar,\
+      \ Smoked jerky, or Salted pretzels."
+    restart: unless-stopped

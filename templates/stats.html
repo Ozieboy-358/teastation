@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea Terminal - Analytics</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍃</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { --primary: #3b82f6; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); padding: 20px; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; overflow-y: auto; }
+        .container { width: 100%; max-width: 1200px; }
+        .header-row { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 25px; }
+        h1 { font-weight: 800; letter-spacing: -1px; color: #60a5fa; margin: 0; display: flex; align-items: center; gap: 10px; }
+        h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #60a5fa; margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .back-link { text-decoration: none; color: #94a3b8; font-weight: 600; font-size: 14px; transition: 0.3s; display: flex; align-items: center; gap: 6px; }
+        .back-link:hover { color: var(--primary); }
+        
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; margin-bottom: 20px; }
+        .card { background: var(--card); padding: 25px; border-radius: 20px; border: 1px solid #334155; box-shadow: 0 10px 30px rgba(0,0,0,0.3); display: flex; flex-direction: column; }
+        .full-width { grid-column: span 2; }
+        
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; font-size: 11px; font-weight: 800; color: #64748b; padding: 10px; border-bottom: 2px solid #334155; text-transform: uppercase; }
+        td { padding: 15px 10px; border-bottom: 1px solid #334155; font-size: 14px; font-weight: 600; }
+        .rank-badge { 
+            display: inline-block; width: 24px; height: 24px; line-height: 24px; text-align: center; 
+            border-radius: 50%; background: #334155; font-size: 12px; font-weight: 800; color: white;
+        }
+        tr:nth-child(1) .rank-badge { background: #f59e0b; }
+        tr:nth-child(2) .rank-badge { background: #94a3b8; }
+        tr:nth-child(3) .rank-badge { background: #b45309; }
+        
+        canvas { max-width: 100%; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-row">
+        <h1><i data-lucide="bar-chart-3"></i> ANALYTICS</h1>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <a href="{{ url_for('graph') }}" class="back-link"><i data-lucide="line-chart"></i> VISUALIZE</a>
+            <a href="{{ url_for('admin') }}" class="back-link"><i data-lucide="settings"></i> SETTINGS</a>
+            <a href="{{ url_for('index') }}" class="back-link"><i data-lucide="arrow-left"></i> RETURN TO TERMINAL</a>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="card">
+            <h2><i data-lucide="pie-chart"></i> CATEGORY VARIETY</h2>
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><i data-lucide="trending-up"></i> BREW POPULARITY (TOP 10)</h2>
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                <canvas id="popularityChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card full-width">
+            <h2 style="color: #60a5fa;"><i data-lucide="trophy" style="color: #f59e0b;"></i>🥇 BREW RANKINGS</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">RANK</th>
+                        <th>TEA BLEND</th>
+                        <th>CATEGORY</th>
+                        <th>TOTAL BREWS</th>
+                        <th>LAST INFUSION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tea in teas %}
+                    <tr>
+                        <td><span class="rank-badge">{{ loop.index }}</span></td>
+                        <td>{{ tea.name }}</td>
+                        <td><span style="color: #94a3b8; font-size: 12px;">{{ tea.category }}</span></td>
+                        <td style="color: #3b82f6; font-weight: 800;">{{ tea.brew_count }}</td>
+                        <td style="font-size: 12px; color: #64748b;">{{ tea.last_brewed.strftime('%Y-%m-%d %H:%M') if tea.last_brewed else 'NEVER' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    lucide.createIcons();
+
+    async function init() {
+        const res = await fetch('/api/tea_data');
+        const teaData = await res.json();
+        
+        initCategoryChart(teaData);
+        initPopularityChart(teaData);
+    }
+
+    function initCategoryChart(teaData) {
+        const counts = {};
+        teaData.forEach(t => { counts[t.category] = (counts[t.category] || 0) + 1; });
+        
+        const ctx = document.getElementById('categoryChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(counts),
+                datasets: [{
+                    data: Object.values(counts),
+                    backgroundColor: ['#ef4444', '#10b981', '#f59e0b', '#3b82f6', '#8b5cf6', '#ec4899', '#f97316'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 11, weight: 'bold' } } }
+                }
+            }
+        });
+    }
+
+    function initPopularityChart(teaData) {
+        const sorted = [...teaData].sort((a, b) => b.brew_count - a.brew_count).slice(0, 10);
+        
+        const ctx = document.getElementById('popularityChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: sorted.map(t => t.name),
+                datasets: [{
+                    label: 'BREW COUNT',
+                    data: sorted.map(t => t.brew_count),
+                    backgroundColor: '#3b82f6',
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+                    y: { grid: { display: false }, ticks: { color: '#f8fafc', font: { weight: 'bold' } } }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+    }
+
+    init();
+</script>
+</body>
+</html>

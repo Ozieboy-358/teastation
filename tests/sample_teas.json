@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Divine Intervention (Hermes)",
+    "category": "Artisan",
+    "ratio": "1.5 tsp : 8oz",
+    "temp": "175°F",
+    "time": 120,
+    "additions": "Honey",
+    "snack": "Fruit Tart",
+    "notes": "Floral, honey-fig, bright citrus"
+  },
+  {
+    "name": "Chai Love",
+    "category": "Energizer",
+    "ratio": "1 tsp : 8oz",
+    "temp": "212°F",
+    "time": 300,
+    "additions": "Oat Milk, Honey",
+    "snack": "Biscoff Cookies",
+    "notes": "Bold, spicy, malty"
+  },
+  {
+    "name": "Japanese Sencha",
+    "category": "Single Origin",
+    "ratio": "1 tsp : 8oz",
+    "temp": "175°F",
+    "time": 120,
+    "additions": "None",
+    "snack": "Rice Crackers",
+    "notes": "Grassy, umami, oceanic"
+  },
+  {
+    "name": "Lavender Chamomile",
+    "category": "Relaxer",
+    "ratio": "1.5 tsp : 8oz",
+    "temp": "212°F",
+    "time": 300,
+    "additions": "Honey Sticks",
+    "snack": "Dark Chocolate",
+    "notes": "Floral, soothing, honey-sweet"
+  },
+  {
+    "name": "Mau Mango",
+    "category": "Immunity",
+    "ratio": "2 tsp : 8oz",
+    "temp": "212°F",
+    "time": 300,
+    "additions": "Honey",
+    "snack": "Dried Mango",
+    "notes": "Mango, pineapple, tropical"
+  }
+]

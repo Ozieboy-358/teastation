@@ -1,0 +1,10 @@
+<service>
+    <id>TeaStation</id>
+    <name>Tea Terminal Sommelier (TeaStation)</name>
+    <description>Local Flask service for the Tea Terminal application.</description>
+    <executable>{{PATH_TO_PYTHON_EXE}}</executable>
+    <arguments>"{{PATH_TO_PROJECT_ROOT}}\app.py"</arguments>
+    <logmode>rotate</logmode>
+    <logpath>{{PATH_TO_PROJECT_ROOT}}\logs</logpath>
+    <stopparentprocessfirst>true</stopparentprocessfirst>
+</service>

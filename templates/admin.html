@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea Terminal - Admin</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍃</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root { --primary: #3b82f6; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; --danger: #ef4444; --success: #10b981; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container { width: 100%; max-width: 1100px; }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 25px;
+        }
+
+        h1 { font-weight: 800; letter-spacing: -1px; color: #60a5fa; margin: 0; display: flex; align-items: center; gap: 10px; }
+        .back-link { text-decoration: none; color: #94a3b8; font-weight: 600; font-size: 14px; transition: 0.3s; display: flex; align-items: center; gap: 6px; }
+        .back-link:hover { color: var(--primary); }
+
+        /* --- Admin Layout --- */
+        .admin-layout { display: flex; flex-wrap: wrap; gap: 25px; width: 100%; align-items: stretch; }
+
+        .card {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            box-sizing: border-box;
+        }
+
+        .form-card { flex: 1; min-width: 400px; }
+        .list-card { flex: 1.5; min-width: 500px; }
+
+        /* --- Form Styling --- */
+        label { display: block; font-size: 11px; font-weight: 800; color: #94a3b8; letter-spacing: 1px; margin-bottom: 5px; }
+        input, select, textarea {
+            width: 100%; padding: 14px; margin-bottom: 15px; border-radius: 12px; border: 1px solid #475569;
+            background: #0f172a; color: white; font-family: inherit; font-size: 14px; box-sizing: border-box;
+        }
+        input:focus, textarea:focus { outline: 2px solid var(--primary); border-color: transparent; }
+
+        .btn {
+            padding: 14px 24px; border-radius: 12px; border: none; font-weight: 800;
+            cursor: pointer; transition: 0.3s; font-family: inherit; text-align: center; text-decoration: none; display: inline-block;
+        }
+        .btn-primary { background: var(--primary); color: white; width: 100%; }
+        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
+
+        /* --- Inventory Table --- */
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th { text-align: left; font-size: 11px; font-weight: 800; color: #64748b; padding: 10px; border-bottom: 2px solid #334155; }
+        td { padding: 15px 10px; border-bottom: 1px solid #334155; font-size: 14px; font-weight: 600; }
+
+        .badge { padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 800; text-transform: uppercase; }
+        .badge-cat { background: rgba(59, 130, 246, 0.1); color: #60a5fa; }
+
+        .action-links { display: flex; gap: 10px; }
+        .edit-link { color: var(--primary); text-decoration: none; font-weight: 800; font-size: 12px; }
+        .delete-link { color: var(--danger); text-decoration: none; font-weight: 800; font-size: 12px; }
+
+        /* Alerts */
+        .flashes { list-style: none; padding: 0; width: 100%; }
+        .flash { background: rgba(16, 185, 129, 0.1); color: var(--success); padding: 15px; border-radius: 12px; border: 1px solid var(--success); margin-bottom: 20px; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-row">
+        <h1><i data-lucide="database"></i> DATABASE COMMAND</h1>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <a href="{{ url_for('graph') }}" class="back-link"><i data-lucide="line-chart"></i> VISUALIZE</a>
+            <a href="{{ url_for('stats') }}" class="back-link"><i data-lucide="bar-chart-3"></i> ANALYTICS</a>
+            <a href="{{ url_for('index') }}" class="back-link"><i data-lucide="arrow-left"></i> RETURN TO TERMINAL</a>
+        </div>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flashes">
+        {% for message in messages %}
+        <li class="flash">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <div class="admin-layout">
+        <div class="card form-card">
+            <h2 style="margin-top:0; font-weight: 800; font-size: 18px; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="plus-circle" style="color: #3b82f6;"></i>
+                {% if edit_tea %}MODIFY BLEND{% else %}FORGE NEW BLEND{% endif %}
+            </h2>
+
+            <form action="{{ url_for('save_tea', id=edit_tea.id if edit_tea else None) }}" method="POST">
+                <label>TEA NAME</label>
+                <input type="text" name="name" value="{{ edit_tea.name if edit_tea else '' }}" required placeholder="e.g. Eternal Devotion">
+
+                <label>CATEGORY</label>
+                <select name="category" id="category" onchange="if(this.value=='NEW'){document.getElementById('new_cat').style.display='block'}else{document.getElementById('new_cat').style.display='none'}">
+                    {% for cat in categories %}
+                        <option value="{{ cat }}" {% if edit_tea and edit_tea.category == cat %}selected{% endif %}>{{ cat }}</option>
+                    {% endfor %}
+                    <option value="NEW" {% if edit_tea and (edit_tea.category not in categories) %}selected{% endif %}>+ Create New Category</option>
+                </select>
+                <input type="text" id="new_cat" name="new_category" placeholder="Enter custom category name..."
+                       value="{{ edit_tea.category if edit_tea and (edit_tea.category not in categories) else '' }}"
+                       style="{{ 'display:block;' if edit_tea and (edit_tea.category not in categories) else 'display:none;' }}">
+
+                <div style="display: flex; gap: 10px;">
+                    <div style="flex:1;">
+                        <label>TEMP</label>
+                        <input type="text" name="temp" value="{{ edit_tea.temp if edit_tea else '212°F' }}">
+                    </div>
+                    <div style="flex:1;">
+                        <label>TIME (SECONDS)</label>
+                        <input type="number" name="time" value="{{ edit_tea.time if edit_tea else 180 }}">
+                    </div>
+                </div>
+
+                <label>RATIO</label>
+                <input type="text" name="ratio" value="{{ edit_tea.ratio if edit_tea else '1 tsp' }}" placeholder="e.g. 1 tsp per 8 oz">
+
+                <label style="display:block; margin-top:10px;">ADDITIONS & SNACKS</label>
+                <div style="display: flex; flex-direction: column; gap: 10px; align-items: stretch;">
+                    <div style="flex:1; display:flex; flex-direction:column;">
+                        <label>ADDITIONS</label>
+                        <textarea name="additions" rows="3" placeholder="e.g. Honey, Lemon" style="resize: vertical; min-height: 60px;">{{ edit_tea.additions if edit_tea else '' }}</textarea>
+                    </div>
+                    <div style="flex:1; display:flex; flex-direction:column;">
+                        <label>SNACK PAIRING</label>
+                        <textarea name="snack" rows="3" placeholder="e.g. Dark Chocolate" style="resize: vertical; min-height: 60px;">{{ edit_tea.snack if edit_tea else '' }}</textarea>
+                    </div>
+                </div>
+
+                <label>FLAVOR LOGS / NOTES</label>
+                <textarea name="notes" rows="4" placeholder="Describe the profile...">{{ edit_tea.notes if edit_tea else '' }}</textarea>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <div>
+                        <label>FOCUS (1-10)</label>
+                        <input type="number" name="focus" min="1" max="10" value="{{ edit_tea.focus if edit_tea else 5 }}">
+                    </div>
+                    <div>
+                        <label>RELAXATION (1-10)</label>
+                        <input type="number" name="relaxation" min="1" max="10" value="{{ edit_tea.relaxation if edit_tea else 5 }}">
+                    </div>
+                    <div>
+                        <label>ENERGY (1-10)</label>
+                        <input type="number" name="energy" min="1" max="10" value="{{ edit_tea.energy if edit_tea else 5 }}">
+                    </div>
+                    <div>
+                        <label>COMPLEXITY (1-10)</label>
+                        <input type="number" name="complexity" min="1" max="10" value="{{ edit_tea.complexity if edit_tea else 5 }}">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    {% if edit_tea %}UPDATE RECORDS{% else %}UPLOAD TO DATABASE{% endif %}
+                </button>
+            </form>
+        </div>
+
+        <div class="card list-card">
+            <h2 style="margin-top:0; font-weight: 800; font-size: 18px; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="list" style="color: #60a5fa;"></i>
+                INVENTORY MANIFEST
+            </h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>CATEGORY</th>
+                    <th>BREWS</th>
+                    <th>ACTIONS</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for tea in teas %}
+                <tr>
+                    <td>{{ tea.name }}</td>
+                    <td><span class="badge badge-cat">{{ tea.category }}</span></td>
+                    <td style="color: #60a5fa;">{{ tea.brew_count }}x</td>
+                    <td>
+                        <div class="action-links">
+                            <a href="{{ url_for('admin', id=tea.id) }}" class="edit-link">EDIT</a>
+                            <form action="{{ url_for('delete_tea', id=tea.id) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="delete-link" style="background:none; border:none; padding:0; cursor:pointer;" onclick="return confirm('Purge this record?')">DELETE</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>

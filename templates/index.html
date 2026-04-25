@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea Terminal</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍃</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root { --primary: #3b82f6; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; }
+
+        html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            box-sizing: border-box;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* --- Aura Lighting --- */
+        .cat-black-tea { border-color: #ef4444 !important; box-shadow: 0 0 20px rgba(239, 68, 68, 0.15); }
+        .cat-green-tea { border-color: #10b981 !important; box-shadow: 0 0 20px rgba(16, 185, 129, 0.15); }
+        .cat-herbal-tea { border-color: #84cc16 !important; box-shadow: 0 0 20px rgba(132, 204, 22, 0.15); }
+        .cat-oolong-tea { border-color: #f59e0b !important; box-shadow: 0 0 20px rgba(245, 158, 11, 0.15); }
+        .cat-white-tea { border-color: #38bdf8 !important; box-shadow: 0 0 20px rgba(56, 189, 248, 0.15); }
+        .cat-chai, .cat-chai-tea { border-color: #b45309 !important; box-shadow: 0 0 20px rgba(180, 83, 9, 0.15); }
+        .cat-pu-erh, .cat-pu-erh-tea { border-color: #78350f !important; box-shadow: 0 0 20px rgba(120, 53, 15, 0.15); }
+        .cat-fruit-tea { border-color: #f472b6 !important; box-shadow: 0 0 20px rgba(244, 114, 182, 0.15); }
+        .cat-rooibos, .cat-rooibos-tea { border-color: #f97316 !important; box-shadow: 0 0 20px rgba(249, 115, 22, 0.15); }
+        .cat-other { border-color: #3b82f6 !important; box-shadow: 0 0 20px rgba(59, 130, 246, 0.15); }
+
+        /* --- Header / Sommelier Card --- */
+        .sommelier-card {
+            background: var(--card);
+            padding: 15px 20px;
+            border-radius: 20px;
+            border: 2px solid #3b82f6;
+            background: rgba(59, 130, 246, 0.05);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            position: relative;
+            margin-bottom: 12px;
+            flex-shrink: 0;
+        }
+
+        h3 { margin: 0 0 8px 0; font-weight: 800; letter-spacing: -0.5px; color: #60a5fa; text-transform: uppercase; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+
+        /* Filter Row & Switches */
+        .filter-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            padding-bottom: 12px;
+            width: 100%;
+        }
+
+        .filter-btn { background: #1e293b; border: 1px solid #475569; color: #f8fafc; padding: 5px 12px; white-space: nowrap; cursor: pointer; border-radius: 8px; font-size: 11px; font-weight: 600; transition: 0.2s; display: flex; align-items: center; gap: 5px; }
+        .filter-btn:hover { background: #334155; border-color: #3b82f6; }
+        
+        .switch-group { display: flex; gap: 8px; margin-left: auto; align-items: center; }
+
+        .switch-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 5px 12px;
+            border-radius: 12px;
+            border: 1px solid #475569;
+            height: 30px;
+        }
+
+        .switch { position: relative; display: inline-block; width: 32px; height: 16px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #475569; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 10px; width: 10px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #3b82f6; }
+        input:checked + .slider:before { transform: translateX(16px); }
+
+        /* --- Main Layout --- */
+        .terminal-layout {
+            display: flex;
+            gap: 15px;
+            flex: 1;
+            min-height: 0;
+            align-items: stretch;
+            margin-bottom: 5px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 18px;
+            border-radius: 20px;
+            border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .main-brew-card { flex: 1.5; }
+        .pairing-menu-card { flex: 1; }
+
+        /* Scrollable Content */
+        #brewArea, #statsList {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 8px;
+            scrollbar-width: thin;
+            scrollbar-color: #3b82f6 #0f172a;
+        }
+
+        /* --- UI Elements --- */
+        .label-blue { color: #3b82f6; font-weight: 800; font-size: 10px; letter-spacing: 1px; display: block; margin-bottom: 2px; text-transform: uppercase; }
+        .formatted-log {
+            white-space: pre-wrap; line-height: 1.3; font-size: 13px; color: #cbd5e1;
+            background: rgba(0,0,0,0.2); padding: 12px; border-radius: 12px;
+            margin-bottom: 8px; border: 1px solid rgba(255,255,255,0.05); text-indent: 0;
+        }
+        .spec-box { background: #0f172a; padding: 10px; border-radius: 12px; flex: 1; text-align: center; border: 1px solid #334155; }
+
+        button#startBtn { background: #10b981; padding: 12px; border-radius: 12px; font-weight: 800; font-size: 14px; margin-top: auto; color: white; border: none; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        
+        .admin-cog { position: absolute; top: 15px; right: 20px; display: flex; gap: 15px; align-items: center; }
+        .admin-cog a { text-decoration: none; color: #475569; transition: 0.3s; display: flex; align-items: center; }
+        .admin-cog a:hover { color: #3b82f6; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="sommelier-card" id="sommelierCard">
+        <div class="admin-cog">
+            <a href="{{ url_for('graph') }}" title="Visualization"><i data-lucide="line-chart"></i></a>
+            <a href="{{ url_for('stats') }}" title="Analytics"><i data-lucide="bar-chart-3"></i></a>
+            <a href="{{ url_for('admin') }}" title="Admin Settings"><i data-lucide="settings"></i></a>
+        </div>
+        <h3><i data-lucide="wind" style="color: #60a5fa; width: 18px;"></i> TEA TERMINAL SOMMELIER</h3>
+
+        <div class="filter-row">
+            <div class="button-group" style="display: flex; gap: 8px;">
+                <button onclick="quickQuery('Studying')" class="filter-btn"><i data-lucide="book-open" style="width:14px;"></i> STUDY</button>
+                <button onclick="quickQuery('Gaming')" class="filter-btn"><i data-lucide="gamepad-2" style="width:14px;"></i> GAME</button>
+                <button onclick="quickQuery('Workout')" class="filter-btn"><i data-lucide="dumbbell" style="width:14px;"></i> GYM</button>
+                <button onclick="quickQuery('Relaxing')" class="filter-btn"><i data-lucide="moon" style="width:14px;"></i> SLEEP</button>
+            </div>
+
+            <div class="switch-group">
+                <div class="switch-container">
+                    <span style="font-size: 10px; font-weight: 800; color: #94a3b8;">WEATHER</span>
+                    <label class="switch">
+                        <input type="checkbox" id="weatherToggle" onchange="toggleWeather()">
+                        <span class="slider"></span>
+                    </label>
+                    <span id="weatherStatus" style="font-size: 10px; color: #94a3b8; font-weight: 800; min-width: 25px;">OFF</span>
+                </div>
+
+                <div class="switch-container">
+                    <span style="font-size: 10px; font-weight: 800; color: #94a3b8;">TIME PROMPT</span>
+                    <label class="switch">
+                        <input type="checkbox" id="timeToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span id="clockDisplay" style="font-size: 11px; color: #60a5fa; font-weight: 800; min-width: 50px;">--:--</span>
+                </div>
+
+                <div class="switch-container">
+                    <span style="font-size: 10px; font-weight: 800; color: #94a3b8;">ICE TEA</span>
+                    <label class="switch">
+                        <input type="checkbox" id="icedToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span id="icedStatus" style="font-size: 10px; color: #94a3b8; font-weight: 800; min-width: 25px;">OFF</span>
+                </div>
+
+                <div class="switch-container">
+                    <span style="font-size: 10px; font-weight: 800; color: #94a3b8;">GAMING</span>
+                    <label class="switch">
+                        <input type="checkbox" id="gamingToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span id="gamingStatus" style="font-size: 10px; color: #94a3b8; font-weight: 800; min-width: 25px;">OFF</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+            <input type="text" id="userInput" style="flex:1; padding: 10px; border-radius: 10px; background: #0f172a; border: 1px solid #475569; color: white; font-size: 14px;" placeholder="Input parameters..." onkeydown="if(event.key === 'Enter') getAIRecommendation()">
+            <button onclick="getAIRecommendation()" id="magicBtn" style="width: auto; padding: 0 20px; background: #3b82f6; border-radius: 10px; font-weight: 800; border: none; color: white; cursor: pointer;">QUERY</button>
+        </div>
+        <div id="aiResponseContainer" style="display:none; margin-top: 10px; font-size: 13px; line-height: 1.4; border-left: 3px solid #3b82f6; padding-left: 12px; color: #cbd5e1;">
+            <p id="aiReason" style="margin: 0;"></p>
+            <div id="aiTiming" style="font-size: 10px; color: #64748b; margin-top: 8px;"></div>
+        </div>
+    </div>
+
+    <div class="terminal-layout">
+        <div class="card main-brew-card" id="mainCard">
+            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                <select id="teaSelect" style="flex: 1; padding: 10px; border-radius: 10px; background: #334155; color: white; border: none; font-weight: 600; font-size: 14px;">
+                    <option value="">BROWSE INVENTORY...</option>
+                    {% for category, items in teas|groupby('category') %}
+                    <optgroup label="{{ category }}">
+                        {% for tea in items %}
+                        <option value="{{ tea.name }}">{{ tea.name }}</option>
+                        {% endfor %}
+                    </optgroup>
+                    {% endfor %}
+                </select>
+                <div style="position: relative; flex: 1;">
+                    <input type="text" id="semanticSearch" placeholder="SEARCH FLAVORS (e.g. smoky)..." 
+                           style="width: 100%; padding: 10px; border-radius: 10px; background: #0f172a; border: 1px solid #475569; color: white; font-size: 12px; box-sizing: border-box;">
+                    <div id="searchResults" style="display:none; position: absolute; top: 100%; left: 0; right: 0; background: #1e293b; border: 1px solid #3b82f6; border-radius: 10px; z-index: 100; max-height: 200px; overflow-y: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.5);"></div>
+                </div>
+            </div>
+
+            <div id="brewArea">
+                <p style="text-align: center; color: #475569; margin-top: 50px; text-transform: uppercase; font-size: 11px; font-weight: 800;">SELECT TEA TO INITIALIZE BREW PROTOCOLS.</p>
+            </div>
+            <button id="startBtn" style="display:none;" onclick="startTimer()"><i data-lucide="play" style="width:16px;"></i> START BREW SEQUENCE</button>
+        </div>
+
+        <div class="card pairing-menu-card">
+            <h3 id="sidebarTitle" style="font-size: 13px; margin: 0 0 10px 0; flex-shrink: 0;"><i data-lucide="history" style="width:16px;"></i> LAST BREWED (LOG)</h3>
+            <div id="statsList">
+{% for tea in stats %}
+                <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #334155; font-size: 12px;">
+                    <span style="font-weight: 600;">{{ tea.name }}</span>
+                    <b style="color: #3b82f6;">{{ tea.brew_count }}x</b>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    lucide.createIcons();
+    let weatherContext = "";
+    let currentTypingId = 0;
+
+    function typeWriter(text, elementId, speed = 15, callback = null) {
+        if (!text) {
+            if (callback) callback();
+            return;
+        }
+        const typingId = ++currentTypingId;
+        let i = 0;
+        const element = document.getElementById(elementId);
+        element.innerHTML = "<b>SOMMELIER:</b> ";
+        function type() {
+            if (typingId !== currentTypingId) return;
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            } else if (callback) {
+                callback();
+            }
+        }
+        type();
+    }
+
+    function getSteepStage(percent) {
+        if (percent < 20) return "INFUSING AROMATICS...";
+        if (percent < 50) return "DEVELOPING BODY & TEXTURE...";
+        if (percent < 85) return "OPTIMIZING TANNIN BALANCE...";
+        return "FINALIZING FLAVOR PEAK...";
+    }
+
+    function updateClock() {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12 || 12;
+        document.getElementById('clockDisplay').innerText = `${hours}:${minutes}${ampm}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    function toggleWeather() {
+        const toggle = document.getElementById('weatherToggle');
+        const status = document.getElementById('weatherStatus');
+        if (toggle.checked) {
+            status.innerText = "LOC...";
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(fetchBackendWeather, () => {
+                    status.innerText = "ERR";
+                    toggle.checked = false;
+                });
+            }
+        } else { status.innerText = "OFF"; weatherContext = ""; }
+    }
+
+    document.getElementById('icedToggle').addEventListener('change', function() {
+        document.getElementById('icedStatus').innerText = this.checked ? "ON" : "OFF";
+    });
+
+    document.getElementById('gamingToggle').addEventListener('change', function() {
+        document.getElementById('gamingStatus').innerText = this.checked ? "ON" : "OFF";
+    });
+
+    async function fetchBackendWeather(pos) {
+        try {
+            const res = await fetch('/get_weather', {
+                method: 'POST', headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ lat: pos.coords.latitude, lon: pos.coords.longitude })
+            });
+            const data = await res.json();
+            weatherContext = data.summary;
+            document.getElementById('weatherStatus').innerText = data.temp;
+        } catch { document.getElementById('weatherStatus').innerText = "FAIL"; }
+    }
+
+    async function getAIRecommendation() {
+        const input = document.getElementById('userInput').value;
+        if (!input.trim()) return;
+
+        const btn = document.getElementById('magicBtn');
+        if (btn.disabled) return;
+
+        const useIced = document.getElementById('icedToggle').checked;
+        const useTime = document.getElementById('timeToggle').checked; // Correctly get toggle state
+        const useGaming = document.getElementById('gamingToggle').checked;
+        let prompt = input;
+
+        if (document.getElementById('weatherToggle').checked && weatherContext) prompt += `. Weather context: ${weatherContext}`;
+        if (useTime) prompt += `. Current Time: ${document.getElementById('clockDisplay').innerText}`;
+
+        btn.innerText = "ANALYZING...";
+        btn.disabled = true;
+
+        // Reset Response UI
+        const container = document.getElementById('aiResponseContainer');
+        const reasonEl = document.getElementById('aiReason');
+        const timingEl = document.getElementById('aiTiming');
+        
+        container.style.display = "block";
+        reasonEl.innerHTML = "<b>SOMMELIER:</b> <span style='opacity:0.5'>Analyzing neural pathways...</span>";
+        timingEl.innerHTML = "";
+
+        try {
+            const res = await fetch('/ask_ai', {
+                method: 'POST', headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ 
+                    user_input: prompt, 
+                    use_iced: useIced,
+                    use_time: useTime,
+                    gaming_mode: useGaming
+                })
+            });
+            const data = await res.json();
+            
+            typeWriter(data.reason || 'Analysis complete.', 'aiReason', 15, () => {
+                if (data.timings) {
+                    timingEl.innerHTML = data.timings.cached ? '⚡ CACHED' : `INFERENCE: ${data.timings.inference}ms`;
+                }
+            });
+
+            if (data.recommendation && data.recommendation !== "Error") {
+                selectTeaByName(data.recommendation);
+            }
+
+            if (data.similar_teas) {
+                document.getElementById('sidebarTitle').innerHTML = '<i data-lucide="sparkles" style="width:14px;"></i> VIBE MATCHES';
+                document.getElementById('statsList').innerHTML = data.similar_teas.map(t => `
+                    <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #334155; font-size: 12px; cursor: pointer;" onclick="selectTeaByName('${t.name}')">
+                        <span style="font-weight: 600;">${t.name}</span>
+                        <b style="color: #3b82f6;">MATCH</b>
+                    </div>`).join('');
+                lucide.createIcons();
+            }
+        } catch (e) { console.error(e); }
+        btn.innerText = "QUERY";
+        btn.disabled = false;
+    }
+
+    function selectTeaByName(name) {
+        if (!name) return;
+        const select = document.getElementById('teaSelect');
+        const searchName = name.toLowerCase().trim();
+        
+        // 1. Try exact match
+        for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].value.toLowerCase().trim() === searchName) {
+                select.selectedIndex = i;
+                select.dispatchEvent(new Event('change'));
+                return;
+            }
+        }
+        
+        // 2. Try partial match if no exact match
+        for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].value.toLowerCase().includes(searchName) || searchName.includes(select.options[i].value.toLowerCase())) {
+                if (select.options[i].value !== "") { // Ignore "BROWSE INVENTORY..."
+                    select.selectedIndex = i;
+                    select.dispatchEvent(new Event('change'));
+                    return;
+                }
+            }
+        }
+        console.warn("Could not find tea in select options:", name);
+    }
+
+    function quickQuery(act) {
+        document.getElementById('userInput').value = `I am ${act.toLowerCase()}. Suggest a blend.`;
+        getAIRecommendation();
+    }
+
+    const searchInput = document.getElementById('semanticSearch');
+    const searchResults = document.getElementById('searchResults');
+    searchInput.addEventListener('input', async (e) => {
+        const query = e.target.value;
+        if (query.length < 2) {
+            searchResults.style.display = 'none';
+            return;
+        }
+        try {
+            const res = await fetch('/semantic_search', {
+                method: 'POST', headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ query: query })
+            });
+            const data = await res.json();
+            if (data.length > 0) {
+                searchResults.innerHTML = data.map(t => `<div style="padding: 10px; border-bottom: 1px solid #334155; cursor: pointer; font-size: 13px;" onclick="selectFromSearch('${t.name}')">${t.name}</div>`).join('');
+                searchResults.style.display = 'block';
+            } else { searchResults.style.display = 'none'; }
+        } catch (err) { console.error(err); }
+    });
+
+    function selectFromSearch(name) {
+        document.getElementById('semanticSearch').value = "";
+        searchResults.style.display = 'none';
+        const select = document.getElementById('teaSelect');
+        for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].text === name) {
+                select.selectedIndex = i;
+                select.dispatchEvent(new Event('change'));
+                break;
+            }
+        }
+    }
+
+    document.getElementById('teaSelect').addEventListener('change', async function() {
+        const name = this.value; if (!name) return;
+        const res = await fetch(`/get_tea/${encodeURIComponent(name)}`);
+        const tea = await res.json();
+        document.getElementById('mainCard').className = "card main-brew-card cat-" + tea.category.toLowerCase().replace(/ /g, '-');
+        document.getElementById('startBtn').style.display = 'block';
+        document.getElementById('startBtn').onclick = () => startTimer(tea.time, tea.name);
+        document.getElementById('brewArea').innerHTML = `
+        <div style="text-align: left; animation: fadeIn 0.3s ease;">
+            <h2 style="margin: 0 0 10px 0; font-weight: 800; font-size: 22px; letter-spacing: -1px;">${tea.name.toUpperCase()}</h2>
+            <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                <div class="spec-box"><small class="label-blue">TEMP</small><b style="font-size: 16px;">${tea.temp}</b></div>
+                <div class="spec-box"><small class="label-blue">TIME</small><b style="font-size: 16px;">${tea.time}s</b></div>
+                <div class="spec-box"><small class="label-blue">BREWED</small><b style="font-size: 16px;">${tea.brew_count}x</b></div>
+            </div>
+            <div class="formatted-log"><span class="label-blue">ADDITIONS</span>${tea.additions || 'None'}</div>
+            <div class="formatted-log"><span class="label-blue">SNACK</span>${tea.snack || 'None'}</div>
+            <div class="formatted-log"><span class="label-blue">NOTES</span>${tea.notes || 'None'}</div>
+        </div>`;
+    });
+
+    function startTimer(seconds, teaName) {
+        let totalSeconds = seconds;
+        let timeLeft = seconds;
+        const btn = document.getElementById('startBtn');
+        btn.disabled = true;
+        const interval = setInterval(async () => {
+            let percentDone = ((totalSeconds - timeLeft) / totalSeconds) * 100;
+            btn.innerHTML = `<i data-lucide="timer" style="width:16px;"></i> [${timeLeft}S] - ${getSteepStage(percentDone)}`;
+            lucide.createIcons();
+            timeLeft--;
+            if (timeLeft < 0) {
+                clearInterval(interval);
+                btn.innerText = "SYNCING...";
+                try {
+                    const res = await fetch(`/increment_brew/${encodeURIComponent(teaName)}`, { method: 'POST' });
+                    const data = await res.json();
+                    if (data.success) {
+                        btn.innerText = "COMPLETE";
+                        btn.style.background = "#3b82f6";
+                        document.getElementById('statsList').innerHTML = data.stats.map(t => `
+                            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #334155; font-size: 12px;">
+                                <span>${t.name}</span><b style="color: #3b82f6;">${t.brew_count}x</b>
+                            </div>`).join('');
+                    }
+                } catch (e) { btn.innerText = "SYNC ERROR"; }
+                new Audio('https://actions.google.com/sounds/v1/clocks/timer_beep.ogg').play();
+                setTimeout(() => { location.reload(); }, 3000);
+            }
+        }, 1000);
+    }
+</script>
+</body>
+</html>

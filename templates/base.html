@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Tea Terminal{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        :root { --primary: #3b82f6; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; }
+        html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            box-sizing: border-box;
+            line-height: 1.2;
+        }
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-shrink: 0;
+        }
+        .nav-links { display: flex; gap: 15px; align-items: center; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: #94a3b8; 
+            font-size: 13px; 
+            font-weight: 800; 
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: #3b82f6; }
+        .nav-links a.active { color: #3b82f6; }
+        {% block extra_css %}{% endblock %}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-nav">
+            <h3 style="margin: 0; font-weight: 800; letter-spacing: -0.5px; color: #60a5fa; text-transform: uppercase; font-size: 13px;">🍃 TEA TERMINAL</h3>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}" class="{% if request.endpoint == 'index' %}active{% endif %}">TERMINAL</a>
+                <a href="{{ url_for('graph') }}" class="{% if request.endpoint == 'graph' %}active{% endif %}">VISUALIZE</a>
+                <a href="{{ url_for('stats') }}" class="{% if request.endpoint == 'stats' %}active{% endif %}">ANALYTICS</a>
+                <a href="{{ url_for('admin') }}" class="{% if request.endpoint == 'admin' %}active{% endif %}">SETTINGS</a>
+            </div>
+        </div>
+        {% block content %}{% endblock %}
+    </div>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
